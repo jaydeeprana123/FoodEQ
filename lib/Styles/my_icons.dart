@@ -1,6 +1,5 @@
 /*PNG ICONS AND IMAGES IS HERE*/
 
-
 const imageWalkthroughFirst = 'assets/images/imageWalkthroughFirst.png';
 const imageWalkthorughSecond = 'assets/images/imageWalkthorughSecond.png';
 const imageWalkthroughThird = 'assets/images/imageWalkthroughThird.png';
@@ -12,13 +11,12 @@ const prefrenceBg = 'assets/images/prefrence_bg.jpg';
 const oneLast = 'assets/images/oneLast.jpg';
 const userInfoBg = 'assets/images/userInfoBg.jpeg';
 const oneLastLogo = 'assets/images/oneLastLogo.png';
-const splashBg = 'assets/images/splash_bg.jpg';
+const splashBg = 'assets/images/splash_bg.jpeg';
 const accountCreateBg = 'assets/images/accountCreateBg.jpeg';
 const imgProfile = "assets/images/imgProfile.png";
 const iconThumb = "assets/images/iconThumb.png";
 const iconGoogle = "assets/images/iconGoogle.png";
 const logoKnight = "assets/images/logoKnight.png";
-
 
 /*SVG ICONS IS HERE*/
 
@@ -52,6 +50,3 @@ const iconGreenTick = "assets/images/iconGreenTick.svg";
 const icon_small_rating_bar = "assets/images/icon_small_rating_bar.svg";
 const iconVerified = "assets/images/iconVerified.svg";
 const iconCalender = "assets/images/iconCalender.svg";
-
-
-
