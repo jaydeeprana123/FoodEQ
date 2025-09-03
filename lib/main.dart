@@ -1,11 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:food_eq/Screens/login_screen_view.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_eq/Screens/splash_screen_view.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 
+import 'Styles/my_colors.dart';
+
 
 void main() {
+
+  SystemChrome.setSystemUIOverlayStyle(
+    const SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent, // or yellowCard if needed
+      statusBarIconBrightness: Brightness.dark,
+      systemNavigationBarColor: yellowBg, // 👈 Bottom bar color
+      systemNavigationBarIconBrightness: Brightness.dark, // Dark icons
+    ),
+  );
+
   runApp(const MyApp());
 }
 

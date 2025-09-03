@@ -16,7 +16,9 @@ const bgColor = Color(0xfffafbfb);
 const hintText = Color(0xff919eab);
 const textColor = Color(0xff635646);
 const yellowBg = Color(0xfff9e548);
-const lightYellowBg = Color(0xffFFF9E8);
+const lighterYellowBg = Color(0xffFBEE84);
+
+const lightYellowBg = Color(0xffFFF9CC);
 const yellowCard = Color(0xffFDF5B4);
 
 const greyColor_637381 = Color(0xff637381);

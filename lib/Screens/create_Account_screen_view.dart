@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_eq/Screens/preference_screen_view.dart';
 import 'package:food_eq/Screens/user_info_screen_view.dart';
@@ -26,6 +27,8 @@ class CreateAccountScreen extends StatefulWidget {
 
 class _CreateAccountScreenState extends State<CreateAccountScreen> {
   bool isChecked = false;
+
+
 
   Widget customTextField(String label, {bool obscureText = false}) {
     return Column(
@@ -120,6 +123,23 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
         );
       },
     );
+  }
+
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+    SystemChrome.setSystemUIOverlayStyle(
+      const SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent, // or yellowCard if needed
+        statusBarIconBrightness: Brightness.dark,
+        systemNavigationBarColor: lightYellowBg, // 👈 Bottom bar color
+        systemNavigationBarIconBrightness: Brightness.dark, // Dark icons
+      ),
+    );
+
   }
 
   @override
@@ -221,7 +241,52 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                                 fontSize: 16,
                                 fontFamily: fontInterBold)),
                       ),
-                    )
+                    ),
+
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 4.0, vertical: 12.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          // Filled bar
+                          Expanded(
+                            child: Container(
+                              height: 4,
+                              decoration: BoxDecoration(
+                                color: Colors.black,
+                                borderRadius: BorderRadius.circular(2),
+                              ),
+                            ),
+                          ),
+                          SizedBox(width: 6),
+                          // Outlined bar 1
+                          Expanded(
+                            child: Container(
+                              height: 4,
+                              decoration: BoxDecoration(
+                                color: Colors.transparent,
+                                border: Border.all(color: Colors.black, width: 1),
+                                borderRadius: BorderRadius.circular(2),
+                              ),
+                            ),
+                          ),
+                          SizedBox(width: 6),
+                          // Outlined bar 2
+                          Expanded(
+                            child: Container(
+                              height: 4,
+                              decoration: BoxDecoration(
+                                color: Colors.transparent,
+                                border: Border.all(color: Colors.black, width: 1),
+                                borderRadius: BorderRadius.circular(2),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+
+
                   ],
                 ),
               ),

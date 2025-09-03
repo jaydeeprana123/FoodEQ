@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_eq/Screens/final_set_up_screen_view.dart';
+import 'package:food_eq/Screens/home_page_screen_view.dart';
 import 'package:food_eq/Screens/user_info_screen_view.dart';
 import 'package:food_eq/Styles/constant.dart';
 import 'package:get/get.dart';
@@ -12,6 +14,8 @@ import '../Styles/my_colors.dart';
 import '../Styles/my_font.dart';
 
 import 'package:flutter/material.dart';
+
+import 'fitness_dashboard_view.dart';
 
 class PreferenceScreen extends StatelessWidget {
   final TextEditingController allergyController = TextEditingController();
@@ -84,6 +88,17 @@ class PreferenceScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    SystemChrome.setSystemUIOverlayStyle(
+      const SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent, // or yellowCard if needed
+        statusBarIconBrightness: Brightness.dark,
+        systemNavigationBarColor: lightYellowBg, // 👈 Bottom bar color
+        systemNavigationBarIconBrightness: Brightness.dark, // Dark icons
+      ),
+    );
+
+
     String selectedDiet = dietaryOptions[0];
     String selectedAllergy = allergyOptions[0];
     String selectedCondition = conditionOptions[0];
@@ -94,120 +109,170 @@ class PreferenceScreen extends StatelessWidget {
           fit: StackFit.expand,
           children: [
             Container(
-              color: lightYellowBg, // Replace with your actual image pat
+              color: lightYellowBg,
             ),
             Padding(
               padding: const EdgeInsets.all(24.0),
               child: StatefulBuilder(
-                builder: (context, setState) => Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Center(
-                        child: const Text("Almost done",
-                            style: TextStyle(
-                                fontSize: 20,
-                                color: textColor,
-                                fontFamily: fontInterMedium))),
-
-                    const SizedBox(height: 24),
-
-                    // Dietary Preferences Dropdown
-                    buildLabel(
-                      "Dietary Preferences",
-                    ),
-                    Container(
-                      height: 50,
-                      child: DropdownButtonFormField<String>(
-                        value: selectedDiet,
-                        dropdownColor: Colors.white,
-                        decoration: buildInputDecoration(),
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 14,
-                            fontFamily: fontInterRegular),
-                        iconEnabledColor: Colors.black,
-                        items: dietaryOptions
-                            .map((e) =>
-                                DropdownMenuItem(value: e, child: Text(e)))
-                            .toList(),
-                        onChanged: (value) => setState(() {
-                          selectedDiet = value!;
-                        }),
-                      ),
-                    ),
-                    const SizedBox(height: 16),
-
-                    // Allergies Chips
-                    buildLabel("Allergies"),
-                    ...allergies.map((e) => chipRow(e, () {
-                          setState(() {
-                            allergies.remove(e);
-                          });
-                        })),
-                    dropdownWithAdd(
-                      options: allergyOptions,
-                      onAdd: (value) {
-                        if (!allergies.contains(value)) {
-                          setState(() {
-                            allergies.add(value);
-                          });
-                        }
-                      },
-                    ),
-                    const SizedBox(height: 16),
-
-                    // Health Conditions
-                    buildLabel(
-                      "Health Conditions",
-                    ),
-                    ...conditions.map((e) => chipRow(e, () {
-                          setState(() {
-                            conditions.remove(e);
-                          });
-                        })),
-                    dropdownWithAdd(
-                      options: conditionOptions,
-                      onAdd: (value) {
-                        if (!conditions.contains(value)) {
-                          setState(() {
-                            conditions.add(value);
-                          });
-                        }
-                      },
-                    ),
-
-                    const Spacer(),
-
-                    // NEXT Button
-                    SizedBox(
-                      width: double.infinity,
-                      child: ElevatedButton(
-                        onPressed: () {
-                          Get.to(FinalSetupScreen());
-                        },
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: greenColor,
-                          padding: const EdgeInsets.symmetric(vertical: 16),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.all(Radius.circular(4)),
+                builder: (context, setState) => SingleChildScrollView(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Center(
+                        child: const Text(
+                          "Almost done",
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: textColor,
+                            fontFamily: fontInterMedium,
                           ),
                         ),
-                        child: const Text(
-                          'NEXT',
+                      ),
+
+                      const SizedBox(height: 24),
+
+                      // Dietary Preferences Dropdown
+                      buildLabel("Dietary Preferences"),
+                      Container(
+                        height: 50,
+                        child: DropdownButtonFormField<String>(
+                          value: selectedDiet,
+                          dropdownColor: Colors.white,
+                          decoration: buildInputDecoration(),
                           style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 16,
-                              fontFamily: fontInterBold),
+                              color: Colors.black,
+                              fontSize: 14,
+                              fontFamily: fontInterRegular),
+                          iconEnabledColor: Colors.black,
+                          items: dietaryOptions
+                              .map((e) => DropdownMenuItem(value: e, child: Text(e)))
+                              .toList(),
+                          onChanged: (value) => setState(() {
+                            selectedDiet = value!;
+                          }),
                         ),
                       ),
-                    ),
-                  ],
+
+                      const SizedBox(height: 16),
+
+                      // Allergies
+                      buildLabel("Allergies"),
+                      ...allergies.map((e) => chipRow(e, () {
+                        setState(() {
+                          allergies.remove(e);
+                        });
+                      })),
+                      dropdownWithAdd(
+                        options: allergyOptions,
+                        onAdd: (value) {
+                          if (!allergies.contains(value)) {
+                            setState(() {
+                              allergies.add(value);
+                            });
+                          }
+                        },
+                      ),
+
+                      const SizedBox(height: 16),
+
+                      // Health Conditions
+                      buildLabel("Health Conditions"),
+                      ...conditions.map((e) => chipRow(e, () {
+                        setState(() {
+                          conditions.remove(e);
+                        });
+                      })),
+                      dropdownWithAdd(
+                        options: conditionOptions,
+                        onAdd: (value) {
+                          if (!conditions.contains(value)) {
+                            setState(() {
+                              conditions.add(value);
+                            });
+                          }
+                        },
+                      ),
+
+                      const SizedBox(height: 24),
+
+                      // NEXT Button
+                      SizedBox(
+                        width: double.infinity,
+                        child: ElevatedButton(
+                          onPressed: () {
+                            Get.to(HomePage());
+                          },
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: greenColor,
+                            padding: const EdgeInsets.symmetric(vertical: 16),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.all(Radius.circular(4)),
+                            ),
+                          ),
+                          child: const Text(
+                            'NEXT',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 16,
+                                fontFamily: fontInterBold),
+                          ),
+                        ),
+                      ),
+
+                      const SizedBox(height: 12),
+
+                      // Progress Bar Row
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 4.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            // Filled bar
+                            Expanded(
+                              child: Container(
+                                height: 4,
+                                decoration: BoxDecoration(
+                                  color: Colors.black,
+                                  borderRadius: BorderRadius.circular(2),
+                                ),
+                              ),
+                            ),
+                            SizedBox(width: 6),
+                            // Filled bar 2
+                            Expanded(
+                              child: Container(
+                                height: 4,
+                                decoration: BoxDecoration(
+                                  color: Colors.black,
+                                  borderRadius: BorderRadius.circular(2),
+                                ),
+                              ),
+                            ),
+                            SizedBox(width: 6),
+                            // Filled bar 3
+                            Expanded(
+                              child: Container(
+                                height: 4,
+                                decoration: BoxDecoration(
+                                  color: Colors.black,
+                                  borderRadius: BorderRadius.circular(2),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+
+                      const SizedBox(height: 24),
+                    ],
+                  ),
                 ),
               ),
             ),
           ],
         ),
-      ),
+      )
+      ,
     );
   }
 
@@ -329,7 +394,7 @@ class PreferenceScreen extends StatelessWidget {
       child: Text(
         label,
         style: TextStyle(
-            color: Colors.black, fontSize: 14, fontFamily: fontInterRegular),
+            color: Colors.black, fontSize: 14, fontFamily: fontInterMedium),
       ),
     );
   }

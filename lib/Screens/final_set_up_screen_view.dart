@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_eq/Screens/create_Account_screen_view.dart';
+import 'package:food_eq/Screens/home_page_screen_view.dart';
 import 'package:food_eq/Screens/preference_screen_view.dart';
 import 'package:food_eq/Screens/splash_screen_view.dart';
 import 'package:food_eq/Styles/constant.dart';
@@ -21,6 +23,17 @@ import 'fitness_dashboard_view.dart';
 class FinalSetupScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+
+    SystemChrome.setSystemUIOverlayStyle(
+      const SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent, // or yellowCard if needed
+        statusBarIconBrightness: Brightness.dark,
+        systemNavigationBarColor: lightYellowBg, // 👈 Bottom bar color
+        systemNavigationBarIconBrightness: Brightness.dark, // Dark icons
+      ),
+    );
+
+
     return Scaffold(
       body: Stack(
         fit: StackFit.expand,
@@ -52,8 +65,8 @@ class FinalSetupScreen extends StatelessWidget {
                       alignment: Alignment.center,
                       children: [
                         Image.asset(
-                          oneLastLogo, // Replace with your wearable image
-                          width: 150,
+                          wearableDevice, // Replace with your wearable image
+                          width: 230,
                         ),
 
                       ],
@@ -79,7 +92,7 @@ class FinalSetupScreen extends StatelessWidget {
 
                       child: const Text(
                         "Sync to smart wearables",
-                        style: TextStyle(color: Colors.black, fontSize: 15, fontFamily: fontInterRegular),
+                        style: TextStyle(color: Colors.black, fontSize: 15, fontFamily: fontInterMedium),
 
                       ),
                     ),
@@ -115,7 +128,7 @@ class FinalSetupScreen extends StatelessWidget {
                     width: double.infinity,
                     child: ElevatedButton(
                       onPressed: () {
-                        Get.to(FitnessDashboard());
+                        Get.to(HomePage());
 
                       },
                       style: ElevatedButton.styleFrom(
@@ -134,7 +147,18 @@ class FinalSetupScreen extends StatelessWidget {
                     ),
                   ),
 
-                  const SizedBox(height: 20),
+                  Spacer(),
+
+                  Container(
+                    height: 4,
+                    width: 140,
+                    decoration: BoxDecoration(
+                      color: Colors.black,
+                      borderRadius: BorderRadius.circular(2),
+                    ),
+                  ),
+
+                  const SizedBox(height: 4),
                 ],
               ),
             ),

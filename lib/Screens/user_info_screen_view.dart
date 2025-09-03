@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_eq/Screens/preference_screen_view.dart';
 import 'package:food_eq/Styles/constant.dart';
@@ -51,8 +52,19 @@ class UserInfoScreen extends StatelessWidget {
   ];
 
 
+
   @override
   Widget build(BuildContext context) {
+
+    SystemChrome.setSystemUIOverlayStyle(
+      const SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent, // or yellowCard if needed
+        statusBarIconBrightness: Brightness.dark,
+        systemNavigationBarColor: lightYellowBg, // 👈 Bottom bar color
+        systemNavigationBarIconBrightness: Brightness.dark, // Dark icons
+      ),
+    );
+
     String selectedAge = ageOptions[1];
     String selectedGender = genderOptions[0];
     String selectedHeight = heightOptions[1];
@@ -140,6 +152,48 @@ class UserInfoScreen extends StatelessWidget {
                             style: TextStyle(color: Colors.white, fontSize: 16, fontFamily: fontInterBold),
 
                         ),
+                      ),
+                    ),
+
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 4.0, vertical: 12.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          // Filled bar
+                          Expanded(
+                            child: Container(
+                              height: 4,
+                              decoration: BoxDecoration(
+                                color: Colors.black,
+                                borderRadius: BorderRadius.circular(2),
+                              ),
+                            ),
+                          ),
+                          SizedBox(width: 6),
+                          // Outlined bar 1
+                          Expanded(
+                            child: Container(
+                              height: 4,
+                              decoration: BoxDecoration(
+                                color: Colors.black,
+                                borderRadius: BorderRadius.circular(2),
+                              ),
+                            ),
+                          ),
+                          SizedBox(width: 6),
+                          // Outlined bar 2
+                          Expanded(
+                            child: Container(
+                              height: 4,
+                              decoration: BoxDecoration(
+                                color: Colors.transparent,
+                                border: Border.all(color: Colors.black, width: 1),
+                                borderRadius: BorderRadius.circular(2),
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ],

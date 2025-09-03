@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:food_eq/Screens/login_screen_view.dart';
 import 'package:food_eq/Styles/my_icons.dart';
 import 'package:get/get.dart';
-
-
-
 import 'package:flutter/material.dart';
-import 'package:get/get.dart'; // Make sure you have GetX installed
+import 'package:get/get.dart';
+
+import '../Styles/my_colors.dart';
+import '../Styles/my_font.dart'; // Make sure you have GetX installed
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -19,11 +20,21 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
+
+    SystemChrome.setSystemUIOverlayStyle(
+      const SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent, // or yellowCard if needed
+        statusBarIconBrightness: Brightness.dark,
+        systemNavigationBarColor: lightYellowBg, // 👈 Bottom bar color
+        systemNavigationBarIconBrightness: Brightness.dark, // Dark icons
+      ),
+    );
+
     redirectOnPendingState();
   }
 
   void redirectOnPendingState() {
-    Future.delayed(const Duration(seconds: 4), () {
+    Future.delayed(const Duration(seconds: 7), () {
       Get.to(() => const LoginScreenView()); // Use proper constructor
     });
   }
@@ -32,50 +43,67 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
-        fit: StackFit.expand,
-        children: [
-          // Background image
-          Image.asset(
-            splashBg, // Replace with your image path
-            fit: BoxFit.fitHeight,
-          ),
+      fit: StackFit.expand,
+      children: [
+        // Background color
+        Container(
+          color: lightYellowBg,
+        ),
 
-          // Optional overlay for better contrast
-          Container(
-            color: Colors.black.withOpacity(0.3),
-          ),
+        // Background image (like a decorative overlay)
+        Image.asset(
+          splashSpoon,
+          width: double.infinity,
+          fit: BoxFit.cover,
+        ),
 
-          // Centered content
-          Column(
+        // Centered Column
+        Center(
+          child: Column(
+            mainAxisSize: MainAxisSize.max, // Important: centers children vertically
             mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const Spacer(),
+              SizedBox(height: 32,),
 
-              Padding(
-                padding: const EdgeInsets.all(22.0),
-                child: Image.asset(
-                  iconLogo, // Replace with your logo asset
-                  width: double.infinity,
-                ),
+              Image.asset(
+                loginLogo,
+                width: 250,
               ),
 
-              const Spacer(),
-              const Spacer(),
+              const SizedBox(height: 16),
 
               Text(
                 'Reimagine\nyour health',
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  fontSize: 17,
-                  color: Colors.white.withOpacity(0.9),
+                  color: Colors.black,
+                  fontSize: 18,
+                  fontFamily: fontInterMedium,
                 ),
               ),
-
-              const Spacer(),
             ],
           ),
-        ],
-      ),
+        ),
+
+
+      // Bottom loading/progress bar (example use)
+      Positioned(
+        bottom: 32, // Padding from bottom
+        left: MediaQuery.of(context).size.width / 2 - 70, // Centered horizontally (140/2)
+        child: Container(
+          height: 4,
+          width: 140,
+          decoration: BoxDecoration(
+            color: Colors.black,
+            borderRadius: BorderRadius.circular(2),
+          ),
+        )),
+
+        const SizedBox(height: 4),
+      ],
+    ),
+
     );
   }
 }

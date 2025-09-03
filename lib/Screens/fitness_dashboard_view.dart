@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_eq/Screens/preference_screen_view.dart';
 import 'package:food_eq/Screens/user_info_screen_view.dart';
@@ -32,8 +33,19 @@ class FitnessDashboard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    SystemChrome.setSystemUIOverlayStyle(
+      const SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent, // or yellowCard if needed
+        statusBarIconBrightness: Brightness.dark,
+        systemNavigationBarColor: yellowCard, // 👈 Bottom bar color
+        systemNavigationBarIconBrightness: Brightness.dark, // Dark icons
+      ),
+    );
+
+
     return Scaffold(
-      backgroundColor: lightYellowBg,
+      backgroundColor: yellowCard,
       body: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.all(16),
@@ -55,7 +67,7 @@ class FitnessDashboard extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.all(12),
                 decoration: BoxDecoration(
-                  color: yellowCard,
+                  color: lighterYellowBg,
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Column(
@@ -77,7 +89,7 @@ class FitnessDashboard extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
-                  color: yellowCard,
+                  color: lighterYellowBg,
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Column(
@@ -103,7 +115,7 @@ class FitnessDashboard extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
-                  color: yellowCard,
+                  color: lighterYellowBg,
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Column(
@@ -126,45 +138,67 @@ class FitnessDashboard extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: yellowBg, // Custom yellow
+        bottomNavigationBar: ClipRRect(
+          borderRadius: const BorderRadius.only(
+            topLeft: Radius.circular(16),
+            topRight: Radius.circular(16),
+          ),
+          child: BottomNavigationBar(
+            type: BottomNavigationBarType.fixed,
+            backgroundColor: lighterYellowBg, // Your custom yellow
+            selectedItemColor: greenColor,
+            unselectedItemColor: Colors.black87,
+            selectedFontSize: 11,
+            unselectedFontSize: 11,
+            showUnselectedLabels: true,
+            selectedLabelStyle: TextStyle(
+              fontFamily: fontInterSemiBold,
+            ),
+            unselectedLabelStyle: TextStyle(
+              fontFamily: fontInterSemiBold,
+            ),
+            items: const [
+              BottomNavigationBarItem(
+                icon: Padding(
+                  padding: EdgeInsets.only(top: 8.0),
+                  child: Icon(Icons.dashboard),
+                ),
+                label: 'Dashboard',
+              ),
+              BottomNavigationBarItem(
+                icon: Padding(
+                  padding: EdgeInsets.only(top: 8.0),
+                  child: Icon(Icons.qr_code_scanner),
+                ),
+                label: 'Scanner',
+              ),
+              BottomNavigationBarItem(
+                icon: Padding(
+                  padding: EdgeInsets.only(top: 8.0),
+                  child: Icon(Icons.track_changes),
+                ),
+                label: 'Tracker',
+              ),
+              BottomNavigationBarItem(
+                icon: Padding(
+                  padding: EdgeInsets.only(top: 8.0),
+                  child: Icon(Icons.history),
+                ),
+                label: 'History',
+              ),
+              BottomNavigationBarItem(
+                icon: Padding(
+                  padding: EdgeInsets.only(top: 8.0),
+                  child: Icon(Icons.settings),
+                ),
+                label: 'Settings',
+              ),
+            ],
+          ),
+        ),
 
-        selectedItemColor: greenColor,
-        unselectedItemColor: Colors.black54,
-        selectedLabelStyle: const TextStyle(
-          color: greenColor,
-          fontSize: 12,
-          fontFamily: fontInterSemiBold,
-        ),
-        unselectedLabelStyle: const TextStyle(
-          color: Colors.black54,
-          fontSize: 12,
-          fontFamily: fontInterSemiBold,
-        ),
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.dashboard),
-            label: 'Dashboard',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.qr_code_scanner),
-            label: 'Scanner',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.face),
-            label: 'Tracker',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.history),
-            label: 'History',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: 'Settings',
-          ),
-        ],
-      )
-      ,
+
+
     );
   }
 

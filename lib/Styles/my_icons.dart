@@ -5,7 +5,8 @@ const imageWalkthorughSecond = 'assets/images/imageWalkthorughSecond.png';
 const imageWalkthroughThird = 'assets/images/imageWalkthroughThird.png';
 const iconLogo = 'assets/images/logo.png';
 const loginLogo = 'assets/images/login_logo.png';
-
+const wearableDevice = 'assets/images/wearable_device.png';
+const splashSpoon = 'assets/images/splash_spoon.png';
 const loginBg = 'assets/images/loginBg.jpeg';
 const prefrenceBg = 'assets/images/prefrence_bg.jpg';
 const oneLast = 'assets/images/oneLast.jpg';
