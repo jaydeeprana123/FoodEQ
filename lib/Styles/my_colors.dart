@@ -39,3 +39,4 @@ const cancelledOrdersLightColor = Color(0x0040FFCDD2);
 const completedOrderLightColor = Color(0x0080C8E6C9);
 const revenueOrderLightColor = Color(0x0080FFE0B2);
 const invoiceButtonColor = Color(0x004082B1FF);
+const line_color = Color(0xFFC3B940);

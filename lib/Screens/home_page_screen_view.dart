@@ -22,6 +22,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import 'connect_screen_view.dart';
 import 'fitness_dashboard_view.dart';
 
 class HomePage extends StatefulWidget {
@@ -39,7 +40,7 @@ class _HomePageState extends State<HomePage> {
     PlanMealScreenView(), // 2nd tab opens your FitnessDashboard
     const Center(child: Text("History Page")),
     PlanMealScreenView(),
-    const Center(child: Text("Settings Page")),
+    ConnectScreenView()
   ];
 
   @override
