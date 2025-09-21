@@ -24,6 +24,7 @@ const yellowCard = Color(0xffFDF5B4);
 const greyColor_637381 = Color(0xff637381);
 const blackText = Color(0xff212b36);
 const greenColor = Color(0xff5bc500);
+const greenColorLightBg = Color(0xFFC2EB99);
 const borderColor = Color(0xffc4cdd5);
 const disableTextColor = Color(0xcc919eab);
 const btnDisableBgColor = Color(0x3d919eab);

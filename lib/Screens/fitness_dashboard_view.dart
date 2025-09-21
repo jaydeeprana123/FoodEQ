@@ -138,64 +138,64 @@ class FitnessDashboard extends StatelessWidget {
           ),
         ),
       ),
-        bottomNavigationBar: ClipRRect(
-          borderRadius: const BorderRadius.only(
-            topLeft: Radius.circular(16),
-            topRight: Radius.circular(16),
-          ),
-          child: BottomNavigationBar(
-            type: BottomNavigationBarType.fixed,
-            backgroundColor: lighterYellowBg, // Your custom yellow
-            selectedItemColor: greenColor,
-            unselectedItemColor: Colors.black87,
-            selectedFontSize: 11,
-            unselectedFontSize: 11,
-            showUnselectedLabels: true,
-            selectedLabelStyle: TextStyle(
-              fontFamily: fontInterSemiBold,
-            ),
-            unselectedLabelStyle: TextStyle(
-              fontFamily: fontInterSemiBold,
-            ),
-            items: const [
-              BottomNavigationBarItem(
-                icon: Padding(
-                  padding: EdgeInsets.only(top: 8.0),
-                  child: Icon(Icons.dashboard),
-                ),
-                label: 'Dashboard',
-              ),
-              BottomNavigationBarItem(
-                icon: Padding(
-                  padding: EdgeInsets.only(top: 8.0),
-                  child: Icon(Icons.qr_code_scanner),
-                ),
-                label: 'Scanner',
-              ),
-              BottomNavigationBarItem(
-                icon: Padding(
-                  padding: EdgeInsets.only(top: 8.0),
-                  child: Icon(Icons.track_changes),
-                ),
-                label: 'Tracker',
-              ),
-              BottomNavigationBarItem(
-                icon: Padding(
-                  padding: EdgeInsets.only(top: 8.0),
-                  child: Icon(Icons.history),
-                ),
-                label: 'History',
-              ),
-              BottomNavigationBarItem(
-                icon: Padding(
-                  padding: EdgeInsets.only(top: 8.0),
-                  child: Icon(Icons.settings),
-                ),
-                label: 'Settings',
-              ),
-            ],
-          ),
-        ),
+        // bottomNavigationBar: ClipRRect(
+        //   borderRadius: const BorderRadius.only(
+        //     topLeft: Radius.circular(16),
+        //     topRight: Radius.circular(16),
+        //   ),
+        //   child: BottomNavigationBar(
+        //     type: BottomNavigationBarType.fixed,
+        //     backgroundColor: lighterYellowBg, // Your custom yellow
+        //     selectedItemColor: greenColor,
+        //     unselectedItemColor: Colors.black87,
+        //     selectedFontSize: 11,
+        //     unselectedFontSize: 11,
+        //     showUnselectedLabels: true,
+        //     selectedLabelStyle: TextStyle(
+        //       fontFamily: fontInterSemiBold,
+        //     ),
+        //     unselectedLabelStyle: TextStyle(
+        //       fontFamily: fontInterSemiBold,
+        //     ),
+        //     items: const [
+        //       BottomNavigationBarItem(
+        //         icon: Padding(
+        //           padding: EdgeInsets.only(top: 8.0),
+        //           child: Icon(Icons.dashboard),
+        //         ),
+        //         label: 'Dashboard',
+        //       ),
+        //       BottomNavigationBarItem(
+        //         icon: Padding(
+        //           padding: EdgeInsets.only(top: 8.0),
+        //           child: Icon(Icons.qr_code_scanner),
+        //         ),
+        //         label: 'Scanner',
+        //       ),
+        //       BottomNavigationBarItem(
+        //         icon: Padding(
+        //           padding: EdgeInsets.only(top: 8.0),
+        //           child: Icon(Icons.track_changes),
+        //         ),
+        //         label: 'Tracker',
+        //       ),
+        //       BottomNavigationBarItem(
+        //         icon: Padding(
+        //           padding: EdgeInsets.only(top: 8.0),
+        //           child: Icon(Icons.history),
+        //         ),
+        //         label: 'History',
+        //       ),
+        //       BottomNavigationBarItem(
+        //         icon: Padding(
+        //           padding: EdgeInsets.only(top: 8.0),
+        //           child: Icon(Icons.settings),
+        //         ),
+        //         label: 'Settings',
+        //       ),
+        //     ],
+        //   ),
+        // ),
 
 
 

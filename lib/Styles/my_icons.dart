@@ -51,3 +51,8 @@ const iconGreenTick = "assets/images/iconGreenTick.svg";
 const icon_small_rating_bar = "assets/images/icon_small_rating_bar.svg";
 const iconVerified = "assets/images/iconVerified.svg";
 const iconCalender = "assets/images/iconCalender.svg";
+
+const noodles = "assets/images/noodles.jpeg";
+const momos = "assets/images/momo.jpeg";
+const bread = "assets/images/bread.jpeg";
+
