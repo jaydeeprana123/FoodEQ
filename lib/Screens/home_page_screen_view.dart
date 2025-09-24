@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:food_eq/Screens/food_snap1_view.dart';
 import 'package:food_eq/Screens/health_trade_screen_view.dart';
 import 'package:food_eq/Screens/plan_meal_screen_view.dart';
 import 'package:food_eq/Screens/preference_screen_view.dart';
@@ -25,6 +26,7 @@ import 'package:flutter/services.dart';
 
 import 'connect_screen_view.dart';
 import 'daily_goals_screen_view.dart';
+import 'dashboard_screen_view.dart';
 import 'fitness_dashboard_view.dart';
 
 class HomePage extends StatefulWidget {
@@ -38,8 +40,8 @@ class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
 
   final List<Widget> _pages = [
-    FitnessDashboard(), // 2nd tab opens your FitnessDashboard
-    FitnessDashboard(),
+    DashboardView(), // 2nd tab opens your FitnessDashboard
+    FoodSnap1Screen(),
     DailyGoalsScreen(), // 2nd tab opens your FitnessDashboard
     HealthTrendsScreen(),
     PlanMealScreenView(),

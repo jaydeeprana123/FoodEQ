@@ -55,4 +55,5 @@ const iconCalender = "assets/images/iconCalender.svg";
 const noodles = "assets/images/noodles.jpeg";
 const momos = "assets/images/momo.jpeg";
 const bread = "assets/images/bread.jpeg";
+const chinese = "assets/images/chinese.jpg";
 
