@@ -56,4 +56,4 @@ const noodles = "assets/images/noodles.jpeg";
 const momos = "assets/images/momo.jpeg";
 const bread = "assets/images/bread.jpeg";
 const chinese = "assets/images/chinese.jpg";
-
+const singapore = "assets/images/singapore.jpeg";

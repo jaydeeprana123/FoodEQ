@@ -26,6 +26,7 @@ const blackText = Color(0xff212b36);
 const greenColor = Color(0xff5bc500);
 const halfTransparent = Color(0x80000000);
 const greenColorLightBg = Color(0xFFC2EB99);
+const greenColorLightestBg = Color(0xABD4F1B8);
 const borderColor = Color(0xffc4cdd5);
 const disableTextColor = Color(0xcc919eab);
 const btnDisableBgColor = Color(0x3d919eab);

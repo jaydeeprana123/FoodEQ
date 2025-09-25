@@ -33,6 +33,8 @@ import '../Styles/my_font.dart';
 
 import 'package:flutter/material.dart';
 
+import 'meal_analysis_view.dart';
+
 class FoodSnap3View extends StatelessWidget {
   const FoodSnap3View({super.key});
 
@@ -393,7 +395,7 @@ class FoodSnap3View extends StatelessWidget {
                         width: double.infinity,
                         child: ElevatedButton(
                           onPressed: () {
-                            // TODO: Navigate or perform action
+                          Get.to(MealAnalysisView());
                           },
                           style: ElevatedButton.styleFrom(
                             backgroundColor:  Colors.white.withOpacity(0.3),
