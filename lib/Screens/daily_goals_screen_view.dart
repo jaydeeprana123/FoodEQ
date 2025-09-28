@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:food_eq/Screens/create_Account_screen_view.dart';
 import 'package:food_eq/Screens/home_page_screen_view.dart';
 import 'package:food_eq/Screens/preference_screen_view.dart';
@@ -164,10 +164,10 @@ class DailyGoalsScreen extends StatelessWidget {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: const [
-                                _GoalItem(Icons.local_fire_department, "Calories", "2,000 kcal", Colors.red),
-                                _GoalItem(Icons.local_drink, "Hydration", "8 cups", Colors.blue),
-                                _GoalItem(Icons.directions_walk_rounded, "Exercise", "6,000 steps", greenColor),
-                                _GoalItem(Icons.bedtime, "Sleep", "7 hours", Colors.purple),
+                                _GoalItem(UI_sleep, "Calories", "2,000 kcal", Colors.red),
+                                _GoalItem(UI_sleep, "Hydration", "8 cups", Colors.blue),
+                                _GoalItem(UI_sleep, "Exercise", "6,000 steps", greenColor),
+                                _GoalItem(UI_sleep, "Sleep", "7 hours", Colors.purple),
                               ],
                             ),
                           ],
@@ -498,7 +498,7 @@ class _NutrientItem extends StatelessWidget {
 }
 
 class _GoalItem extends StatelessWidget {
-  final IconData icon;
+  final String icon;
   final String title;
   final String value;
   final Color color; // 👈 New parameter
@@ -508,7 +508,7 @@ class _GoalItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Icon(icon, color: color),
+        SvgPicture.asset(icon, color: color,width: 28,),
         const SizedBox(height: 6),
         Text(
           title,

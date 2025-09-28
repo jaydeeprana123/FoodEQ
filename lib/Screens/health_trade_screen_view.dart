@@ -8,7 +8,8 @@ import 'package:food_eq/Screens/preference_screen_view.dart';
 import 'package:food_eq/Screens/splash_screen_view.dart';
 import 'package:food_eq/Styles/constant.dart';
 import 'package:get/get.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+
 import 'package:food_eq/Styles/my_icons.dart';
 
 import '../Model/orders_model.dart';
@@ -256,7 +257,7 @@ class HealthTrendsScreen extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                _weightStatWithLeftCorner("current\nweight", "70.2 kg", Icons.monitor_weight,
+                _weightStatWithLeftCorner("current\nweight", "70.2 kg", UI_BMI,
                     Colors.green, Colors.white),
                 // const SizedBox(width: 6),
                 _weightStat("weight\nchange", "1.3 kg", Icons.refresh, Colors.yellow,
@@ -268,7 +269,7 @@ class HealthTrendsScreen extends StatelessWidget {
                 _weightStat("ideal\nweight", "53.5 kg", Icons.straighten,
                     Colors.brown, Colors.white),
                 // const SizedBox(width: 6),
-                _weightStatWithRightCorner("BMI", "24.2", Icons.monitor_heart,
+                _weightStatWithRightCorner("BMI", "24.2", UI_BMI,
                     Colors.black87, Colors.white),
               ],
             ),
@@ -604,7 +605,7 @@ class HealthTrendsScreen extends StatelessWidget {
    }
 
    Widget _weightStatWithLeftCorner(
-       String label, String value, IconData icon, Color bgColor, Color textColor) {
+       String label, String value, String icon, Color bgColor, Color textColor) {
      return Expanded(
        child: Container(
          height: 70,
@@ -619,13 +620,13 @@ class HealthTrendsScreen extends StatelessWidget {
              Row(
                mainAxisAlignment: MainAxisAlignment.center,
                children: [
-                 // Icon(icon, size: 14, color: textColor),
-                 // const SizedBox(width: 4),
+                 if(label.contains("BMI"))SvgPicture.asset(icon, width: 14, color: textColor),
+                 const SizedBox(width: 4),
                  Flexible(
                    child: Text(
                      label,
                      style: TextStyle(
-                       fontSize: label.contains("BMI")?13:9,
+                       fontSize: label.contains("BMIwrh")?13:9,
                        fontFamily: fontInterSemiBold,
                        color: textColor,
                      ),
@@ -651,7 +652,7 @@ class HealthTrendsScreen extends StatelessWidget {
 
 
    Widget _weightStatWithRightCorner(
-       String label, String value, IconData icon, Color bgColor, Color textColor) {
+       String label, String value, String icon, Color bgColor, Color textColor) {
      return Expanded(
        child: Container(
          height: 70,
@@ -665,14 +666,15 @@ class HealthTrendsScreen extends StatelessWidget {
            children: [
              Row(
                mainAxisAlignment: MainAxisAlignment.center,
+               crossAxisAlignment: CrossAxisAlignment.start,
                children: [
-                 // Icon(icon, size: 14, color: textColor),
-                 // const SizedBox(width: 4),
+                 if(label.contains("BMI"))SvgPicture.asset(icon, width: 16, color: textColor),
+                 const SizedBox(width: 4),
                  Flexible(
                    child: Text(
                      label,
                      style: TextStyle(
-                       fontSize: label.contains("BMI")?13:9,
+                       fontSize: label.contains("BMI")?12:9,
                        fontFamily: fontInterSemiBold,
                        color: textColor,
                      ),

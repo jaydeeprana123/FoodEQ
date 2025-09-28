@@ -34,6 +34,7 @@ import '../Styles/my_font.dart';
 import 'package:flutter/material.dart';
 
 import 'food_snap3_view.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class FoodSnap2Screen extends StatelessWidget {
   const FoodSnap2Screen({super.key});
@@ -90,19 +91,16 @@ class FoodSnap2Screen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Container(
-                        width: 28,
-                        height: 28,
+                        width: 38,
+                        height: 38,
                         decoration: BoxDecoration(
                           color: Colors.green,
                           borderRadius: BorderRadius.circular(6),
                         ),
-                        child: const Center(
-                          child: Text(
-                            "EQ",
-                            style: TextStyle(
-                                fontSize: 12,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white),
+                        child:  Center(
+                          child: SvgPicture.asset(
+                            UI_feq_stack, width: 34,
+                            color: Colors.white,
                           ),
                         ),
                       ),

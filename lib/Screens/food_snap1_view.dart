@@ -3,10 +3,11 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_eq/Screens/preference_screen_view.dart';
 import 'package:food_eq/Screens/user_info_screen_view.dart';
-import 'package:food_eq/Styles/constant.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:food_eq/Styles/my_icons.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import '../Styles/app_text_style.dart';
 import '../Styles/my_colors.dart';
@@ -82,19 +83,16 @@ class FoodSnap1Screen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Container(
-                        width: 28,
-                        height: 28,
+                        width: 38,
+                        height: 38,
                         decoration: BoxDecoration(
                           color: Colors.green,
                           borderRadius: BorderRadius.circular(6),
                         ),
-                        child: const Center(
-                          child: Text(
-                            "EQ",
-                            style: TextStyle(
-                                fontSize: 12,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white),
+                        child:  Center(
+                          child: SvgPicture.asset(
+                            UI_feq_stack, width: 34,
+                            color: Colors.white,
                           ),
                         ),
                       ),
@@ -102,7 +100,7 @@ class FoodSnap1Screen extends StatelessWidget {
                        Text(
                         "Food Snap",
                         style: TextStyle(
-                          fontSize: 18,
+                          fontSize: 20,
                           fontFamily: fontInterBold,
                           color: Colors.white,
                         ),
@@ -153,7 +151,7 @@ class FoodSnap1Screen extends StatelessWidget {
                             ,child: const Icon(Icons.camera,
                                 color: Colors.white, size: 62),
                           ),
-                          const Icon(Icons.flash_on, color: Colors.white, size: 28),
+                           SvgPicture.asset(UI_flash_on, color: Colors.white, width: 28),
                         ],
                       ),
                       const SizedBox(height: 12),
