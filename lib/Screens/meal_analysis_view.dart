@@ -192,9 +192,9 @@ class MealAnalysisView extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: const [
                           _impactBox(
-                              Icons.sentiment_satisfied, "Mood Boost", "+6.8"),
-                          _impactBox(Icons.bolt, "Energy Level", "+7.2"),
-                          _impactBox(Icons.bedtime, "Sleep Quality", "+4.1"),
+                              UI_okay, "Mood Boost", "+6.8"),
+                          _impactBox(UI_energy, "Energy Level", "+7.2"),
+                          _impactBox(UI_sleep, "Sleep Quality", "+4.1"),
                         ],
                       ),
                     ),
@@ -203,24 +203,24 @@ class MealAnalysisView extends StatelessWidget {
 
                     /// Insights
                     Card(
-                      color: Colors.yellow.shade100,
+                      color: lighterYellowBg,
                       margin: const EdgeInsets.symmetric(horizontal: 16),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8),
                       ),
-                      child: const Padding(
+                      child:  Padding(
                         padding: EdgeInsets.all(12),
                         child: Row(
                           children: [
-                            Icon(Icons.insights,
-                                color: Colors.black87, size: 16),
+                            SvgPicture.asset(UI_ai_insight,
+                                color: Colors.black54, width: 20),
                             SizedBox(width: 8),
                             Text(
                               "INSIGHTS",
                               style: TextStyle(
-                                fontSize: 13,
+                                fontSize: 16,
                                 fontFamily: fontInterSemiBold,
-                                color: Colors.black87,
+                                color: Colors.black54,
                               ),
                             ),
                           ],
@@ -399,7 +399,7 @@ class _nutrientRow extends StatelessWidget {
 
 /// Wellness Impact Box
 class _impactBox extends StatelessWidget {
-  final IconData icon;
+  final String icon;
   final String label;
   final String value;
 
@@ -409,14 +409,14 @@ class _impactBox extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: Card(
-        color: Colors.yellow.shade100,
+        color: lighterYellowBg,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 16),
+          padding: const EdgeInsets.symmetric(vertical: 8),
           child: Column(
             children: [
-              Icon(icon, size: 22, color: Colors.black87),
-              const SizedBox(height: 8),
+              SvgPicture.asset(icon, width: 32, color: Colors.black54),
+              const SizedBox(height: 6),
               Text(
                 label,
                 style: const TextStyle(
@@ -426,12 +426,12 @@ class _impactBox extends StatelessWidget {
                 ),
                 textAlign: TextAlign.center,
               ),
-              const SizedBox(height: 4),
+              const SizedBox(height: 3),
               Text(
                 value,
                 style: const TextStyle(
                   fontSize: 14,
-                  fontFamily: fontInterSemiBold,
+                  fontFamily: fontInterBold,
                   color: greenColor,
                 ),
               ),
