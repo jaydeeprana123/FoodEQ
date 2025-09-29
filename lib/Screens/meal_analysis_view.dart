@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:food_eq/Screens/food_snap1_view.dart';
 import 'package:food_eq/Screens/preference_screen_view.dart';
 import 'package:food_eq/Screens/user_info_screen_view.dart';
 import 'package:food_eq/Styles/constant.dart';
@@ -39,6 +40,10 @@ class MealAnalysisView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      Get.to(FoodSnap1Screen());
+    });
+
     SystemChrome.setSystemUIOverlayStyle(
       const SystemUiOverlayStyle(
         statusBarColor: Colors.white,
@@ -58,7 +63,8 @@ class MealAnalysisView extends StatelessWidget {
                 padding: const EdgeInsets.all(16),
                 child: Row(
                   children: [
-                    const Icon(Icons.arrow_back_ios, color: Colors.black54, size: 18),
+                    const Icon(Icons.arrow_back_ios,
+                        color: Colors.black54, size: 18),
                     const SizedBox(width: 8),
                     const Text(
                       "MONDAY, MAY 12",
@@ -119,7 +125,6 @@ class MealAnalysisView extends StatelessWidget {
               //   ),
               // ),
 
-
               Container(
                 margin: EdgeInsets.symmetric(horizontal: 12),
                 color: greenColorLightestBg,
@@ -147,31 +152,32 @@ class MealAnalysisView extends StatelessWidget {
                       ),
                     ),
 
-
-
-
                     /// Key Nutrients
                     _sectionCard(
                       title: "KEY NUTRIENTS",
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: const [
-                          _nutrientRow("Iron", "4.2 mg", "Phosphorus", "245 mg"),
+                          _nutrientRow(
+                              "Iron", "4.2 mg", "Phosphorus", "245 mg"),
                           SizedBox(height: 6),
                           _nutrientRow("B12", "8.4 µg", "Omega-3", "680 mg"),
                         ],
                       ),
                     ),
 
+                    SizedBox(
+                      height: 16,
+                    ),
 
-                    SizedBox(height: 16,),
                     /// Wellness Impact
                     _sectionCard(
                       title: "WELLNESS IMPACT",
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: const [
-                          _impactBox(Icons.sentiment_satisfied, "Mood Boost", "+6.8"),
+                          _impactBox(
+                              Icons.sentiment_satisfied, "Mood Boost", "+6.8"),
                           _impactBox(Icons.bolt, "Energy Level", "+7.2"),
                           _impactBox(Icons.bedtime, "Sleep Quality", "+4.1"),
                         ],
@@ -191,7 +197,8 @@ class MealAnalysisView extends StatelessWidget {
                         padding: EdgeInsets.all(12),
                         child: Row(
                           children: [
-                            Icon(Icons.insights, color: Colors.black87, size: 16),
+                            Icon(Icons.insights,
+                                color: Colors.black87, size: 16),
                             SizedBox(width: 8),
                             Text(
                               "INSIGHTS",
@@ -265,8 +272,11 @@ class MealAnalysisView extends StatelessWidget {
       child: Container(
         width: 96,
         color: Colors.white,
-        child:  Center(
-          child: Image.asset(image, fit: BoxFit.fitWidth,),
+        child: Center(
+          child: Image.asset(
+            image,
+            fit: BoxFit.fitWidth,
+          ),
         ),
       ),
     );
@@ -340,7 +350,8 @@ class _nutrientRow extends StatelessWidget {
   final String rightLabel;
   final String rightValue;
 
-  const _nutrientRow(this.leftLabel, this.leftValue, this.rightLabel, this.rightValue);
+  const _nutrientRow(
+      this.leftLabel, this.leftValue, this.rightLabel, this.rightValue);
 
   @override
   Widget build(BuildContext context) {
@@ -415,8 +426,6 @@ class _impactBox extends StatelessWidget {
       ),
     );
   }
-
-
 }
 
 /// Bottom Nav Item
@@ -445,8 +454,6 @@ class _bottomNavItem extends StatelessWidget {
       ],
     );
   }
-
-
 }
 
 class _NutrientProgress extends StatelessWidget {
@@ -476,15 +483,14 @@ class _NutrientProgress extends StatelessWidget {
           ),
           Expanded(
               child: ClipRRect(
-                borderRadius: BorderRadius.circular(8), // 👈 Rounded corners
-                child: LinearProgressIndicator(
-                  value: progress,
-                  minHeight: 8,
-                  color: greenColor,
-                  backgroundColor: Colors.grey.shade200,
-                ),
-              )
-          ),
+            borderRadius: BorderRadius.circular(8), // 👈 Rounded corners
+            child: LinearProgressIndicator(
+              value: progress,
+              minHeight: 8,
+              color: greenColor,
+              backgroundColor: Colors.grey.shade200,
+            ),
+          )),
           const SizedBox(width: 8),
           Text(
             "$value/$goal g",
@@ -499,6 +505,3 @@ class _NutrientProgress extends StatelessWidget {
     );
   }
 }
-
-
-

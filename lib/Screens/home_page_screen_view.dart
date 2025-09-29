@@ -10,6 +10,7 @@ import 'package:food_eq/Styles/constant.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:food_eq/Styles/my_icons.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import '../Styles/app_text_style.dart';
 import '../Styles/my_colors.dart';
@@ -28,6 +29,7 @@ import 'connect_screen_view.dart';
 import 'daily_goals_screen_view.dart';
 import 'dashboard_screen_view.dart';
 import 'fitness_dashboard_view.dart';
+import 'meal_analysis_view.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -41,7 +43,7 @@ class _HomePageState extends State<HomePage> {
 
   final List<Widget> _pages = [
     DashboardView(), // 2nd tab opens your FitnessDashboard
-    FoodSnap1Screen(),
+    MealAnalysisView(),
     DailyGoalsScreen(), // 2nd tab opens your FitnessDashboard
     HealthTrendsScreen(),
     PlanMealScreenView(),
@@ -89,17 +91,52 @@ class _HomePageState extends State<HomePage> {
             fontFamily: fontInterRegular,
             color: Colors.white70,
           ),
-          items: const [
-            BottomNavigationBarItem(icon: Icon(Icons.dashboard, size: 22,), label: "Dashboard"),
-            BottomNavigationBarItem(icon: Icon(Icons.camera_alt_outlined, size: 22,), label: "Food Snap"),
-            BottomNavigationBarItem(icon: Icon(Icons.flag, size: 22,), label: "Daily Goals"),
-            BottomNavigationBarItem(icon: Icon(Icons.bar_chart, size: 22,), label: "Tracker"),
-            BottomNavigationBarItem(icon: Icon(Icons.restaurant, size: 22,), label: "Plan a Meal"),
-            BottomNavigationBarItem(icon: Icon(Icons.people, size: 22,), label: "Connect"),
+          items: [
+            BottomNavigationBarItem(
+                icon: SvgPicture.asset(
+                  UI_dashboard, // your asset path
+                  width: 22,
+                  height: 22,
+                ),
+                label: "Dashboard"),
+            BottomNavigationBarItem(
+                icon: SvgPicture.asset(
+                  UI_snap, // your asset path
+                  width: 22,
+                  height: 22,
+                ),
+                label: "Food Snap"),
+            BottomNavigationBarItem(
+                icon: SvgPicture.asset(
+                  UI_goal, // your asset path
+                  width: 22,
+                  height: 22,
+                ),
+                label: "Daily Goals"),
+            BottomNavigationBarItem(
+                icon: SvgPicture.asset(
+                  UI_track, // your asset path
+                  width: 22,
+                  height: 22,
+                ),
+                label: "Tracker"),
+            BottomNavigationBarItem(
+                icon: SvgPicture.asset(
+                  UI_log_meal, // your asset path
+                  width: 22,
+                  height: 22,
+                ),
+                label: "Plan a Meal"),
+            BottomNavigationBarItem(
+                icon: SvgPicture.asset(
+                  UI_connect, // your asset path
+                  width: 22,
+                  height: 22,
+                ),
+                label: "Connect"),
           ],
         ),
       ),
     );
   }
 }
-

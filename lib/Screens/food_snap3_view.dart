@@ -46,13 +46,17 @@ class FoodSnap3View extends StatelessWidget {
       body: SafeArea(
         child: Stack(
           children: [
-
-            Image.asset(chinese, width: double.infinity, height: double.infinity,fit: BoxFit.cover,),
+            Image.asset(
+              chinese,
+              width: double.infinity,
+              height: double.infinity,
+              fit: BoxFit.cover,
+            ),
             Positioned(
               top: 16,
               left: 16,
               child: CircleAvatar(
-                backgroundColor: Colors.white.withOpacity(0.1),
+                backgroundColor: Colors.transparent,
                 child: const Icon(Icons.close, color: Colors.white),
               ),
             ),
@@ -68,9 +72,10 @@ class FoodSnap3View extends StatelessWidget {
                       color: Colors.green,
                       borderRadius: BorderRadius.circular(6),
                     ),
-                    child:  Center(
+                    child: Center(
                       child: SvgPicture.asset(
-                        UI_feq_stack, width: 34,
+                        UI_feq_stack,
+                        width: 34,
                         color: Colors.white,
                       ),
                     ),
@@ -87,7 +92,6 @@ class FoodSnap3View extends StatelessWidget {
                 ],
               ),
             ),
-
             Padding(
               padding: const EdgeInsets.all(12.0),
               child: Column(
@@ -142,7 +146,8 @@ class FoodSnap3View extends StatelessWidget {
                               decoration: BoxDecoration(
                                 color: Colors.white,
                                 borderRadius: BorderRadius.circular(8),
-                                border: Border.all(color: Colors.white, width: 1),
+                                border:
+                                    Border.all(color: Colors.white, width: 1),
                               ),
                               child: Text(
                                 "Spaghetti with mussels, calamari, shrimp, garlic, tomato cream sauce, herbs, and olive oil.",
@@ -160,7 +165,8 @@ class FoodSnap3View extends StatelessWidget {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                _buildNutritionTileDummy("Calories", "550 kcal"),
+                                _buildNutritionTileDummy(
+                                    "Calories", "550 kcal"),
                                 _buildNutritionTileDummy("Protein", "25 g"),
                                 _buildNutritionTileDummy("Carb", "60 g"),
                                 _buildNutritionTileDummy("Fat", "18 g"),
@@ -208,16 +214,13 @@ class FoodSnap3View extends StatelessWidget {
                                 fontFamily: fontInterRegular,
                               ),
                             ),
-
-
                           ],
                         ),
                       ),
-
                       Container(
                         padding: EdgeInsets.all(12),
                         decoration: BoxDecoration(
-                          color: Colors.white.withOpacity(0.3),
+                          color: Colors.transparent,
                           borderRadius: BorderRadius.circular(20),
                           border: Border.all(color: halfTransparent, width: 1),
                         ),
@@ -261,7 +264,8 @@ class FoodSnap3View extends StatelessWidget {
                               decoration: BoxDecoration(
                                 color: Colors.white,
                                 borderRadius: BorderRadius.circular(8),
-                                border: Border.all(color: Colors.white, width: 1),
+                                border:
+                                    Border.all(color: Colors.white, width: 1),
                               ),
                               child: Text(
                                 "Spaghetti with mussels, calamari, shrimp, garlic, tomato cream sauce, herbs, and olive oil.",
@@ -292,10 +296,9 @@ class FoodSnap3View extends StatelessWidget {
                             Text(
                               "Estimated Portion:",
                               style: TextStyle(
-                                fontSize: 13,
-                                color: Colors.white,
-                                fontFamily: fontInterRegular
-                              ),
+                                  fontSize: 13,
+                                  color: Colors.white,
+                                  fontFamily: fontInterRegular),
                             ),
                             const SizedBox(height: 4),
                             Text(
@@ -372,7 +375,7 @@ class FoodSnap3View extends StatelessWidget {
                             // TODO: Navigate or perform action
                           },
                           style: ElevatedButton.styleFrom(
-                            backgroundColor:  Colors.black.withOpacity(0.7),
+                            backgroundColor: Colors.black.withOpacity(0.7),
                             padding: const EdgeInsets.symmetric(vertical: 0),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(20),
@@ -388,15 +391,16 @@ class FoodSnap3View extends StatelessWidget {
                           ),
                         ),
                       ),
-
                       SizedBox(
                         width: double.infinity,
                         child: ElevatedButton(
                           onPressed: () {
-                          Get.to(MealAnalysisView());
+                            Navigator.pop(context);
+                            Navigator.pop(context);
+                            Navigator.pop(context);
                           },
                           style: ElevatedButton.styleFrom(
-                            backgroundColor:  Colors.white.withOpacity(0.3),
+                            backgroundColor: Colors.transparent,
                             padding: const EdgeInsets.symmetric(vertical: 0),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(20),
@@ -414,13 +418,9 @@ class FoodSnap3View extends StatelessWidget {
                       ),
                     ],
                   ),
-
                 ],
               ),
             ),
-
-
-
           ],
         ),
       ),
@@ -477,7 +477,3 @@ class FoodSnap3View extends StatelessWidget {
     );
   }
 }
-
-
-
-
