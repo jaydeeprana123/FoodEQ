@@ -59,26 +59,32 @@ class ConnectScreenView extends StatelessWidget {
           children: [
             /// Header
             Container(
-              color: yellowCard,
               padding: const EdgeInsets.all(16.0),
+              color: Colors.white,
               child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const Icon(Icons.arrow_back_ios, color: Colors.black45),
-                  const SizedBox(width: 10),
+                  SvgPicture.asset(UI_back, color: Colors.black54, width: 16,),
+                  const SizedBox(width: 8),
                   const Text(
                     "MONDAY, MAY 12",
                     style: TextStyle(
-                      fontSize: 16,
+                      fontSize: 14,
                       fontFamily: fontInterSemiBold,
-                      color: Colors.black45,
+                      color: Colors.black54,
                     ),
                   ),
+
+                  SizedBox(width: 6,),
+
+                  SvgPicture.asset(UI_calendar, color: Colors.black54,width: 14,),
+
                   const Spacer(),
-                  const Icon(Icons.person_outline, color: Colors.black),
-                  const SizedBox(width: 10),
-                  const Icon(Icons.star_border, color: Colors.black),
-                  const SizedBox(width: 10),
-                  const Icon(Icons.filter_list, color: Colors.black),
+                  SvgPicture.asset(UI_profile, color: Colors.black, width: 20,),
+                  const SizedBox(width: 8),
+                  SvgPicture.asset(UI_ai_insight, color: Colors.black, width: 20,),
+                  const SizedBox(width: 8),
+                  SvgPicture.asset(UI_configure, color: Colors.black, width: 20,),
                 ],
               ),
             ),
@@ -111,11 +117,11 @@ class ConnectScreenView extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      _badgeTop(Icons.emoji_events, active: true, color: greenColor),
-                      _badgeTop(Icons.book, active: false),
-                      _badgeTop(Icons.menu_book, active: false),
-                      _badgeTop(Icons.group, active: false),
-                      _badgeTop(Icons.medical_services, active: false),
+                      _badgeTop(UI_game, active: true, color: greenColor),
+                      _badgeTop(UI_recipe, active: false),
+                      _badgeTop(UI_learn, active: false),
+                      _badgeTop(UI_family, active: false),
+                      _badgeTop(UI_expert, active: false),
                     ],
                   ),
                 ],
@@ -148,7 +154,7 @@ class ConnectScreenView extends StatelessWidget {
                               percent: 80,
                               time: "5 hrs remaining",
                               color: Colors.blue,
-                              icon: Icons.water_drop,
+                              icon: UI_hydration,
                               colorCode: greenColor
                             ),
                           ),
@@ -159,7 +165,7 @@ class ConnectScreenView extends StatelessWidget {
                               percent: 60,
                               time: "5 hrs remaining",
                               color: Colors.pink,
-                              icon: Icons.directions_run,
+                              icon: UI_exercise,
                                 colorCode: Colors.pink
                             ),
                           ),
@@ -171,7 +177,7 @@ class ConnectScreenView extends StatelessWidget {
                         percent: 50,
                         time: "3 days remaining",
                         color: Colors.deepPurple,
-                        icon: Icons.restaurant,
+                        icon: UI_meal,
                           colorCode: Colors.deepPurple
                       ),
                       const SizedBox(height: 20),
@@ -190,9 +196,11 @@ class ConnectScreenView extends StatelessWidget {
                         spacing: 8,
                         runSpacing: 8,
                         children: [
-                          _badge("FOOD SNAP", Colors.orange, Icons.fastfood),
-                          _badge("SLEEP PRIORITY", Colors.purple, Icons.bedtime),
-                          _badge("7-DAYS STREAK", Colors.blue, Icons.star),
+                          _badge("FOOD SNAP", Color(0xFF5f583c), UI_badge),
+                          _badge("SLEEP PRIORITY", Colors.purple,
+                              UI_badge),
+                          _badge("7-DAYS STREAK", Colors.blue,
+                              UI_badge),
                         ],
                       ),
                       const SizedBox(height: 20),
@@ -206,7 +214,7 @@ class ConnectScreenView extends StatelessWidget {
                             color: Colors.black54
                         ),
                       ),
-                      const SizedBox(height: 12),
+
 
                       _newChallenge(
                         title:
@@ -250,7 +258,7 @@ class ConnectScreenView extends StatelessWidget {
     required int percent,
     required String time,
     required Color color,
-    required IconData icon,
+    required String icon,
     required Color colorCode,
   }) {
     return Card(
@@ -274,7 +282,7 @@ class ConnectScreenView extends StatelessWidget {
                     strokeWidth: 6,
                   ),
                 ),
-                Icon(icon, color: color, size: 32),
+                SvgPicture.asset(icon, color: color, width: 32),
               ],
             ),
             const SizedBox(height: 8),
@@ -327,7 +335,7 @@ class ConnectScreenView extends StatelessWidget {
 
 
   /// Badge widget
-  static Widget _badge(String text, Color color, IconData icon) {
+  static Widget _badge(String text, Color color, String icon) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
       decoration: BoxDecoration(
@@ -338,9 +346,9 @@ class ConnectScreenView extends StatelessWidget {
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Icon(
+          SvgPicture.asset(
             icon,
-            size: 14,
+            width: 14,
             color: Colors.white,
           ),
           const SizedBox(width: 6),
@@ -367,7 +375,7 @@ class ConnectScreenView extends StatelessWidget {
   }) {
     return Container(
       margin: const EdgeInsets.only(bottom: 12),
-      padding: const EdgeInsets.all(12),
+      padding: const EdgeInsets.symmetric(vertical: 12),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),
       ),
@@ -441,16 +449,16 @@ class ConnectScreenView extends StatelessWidget {
   }
 
 
-  static Widget _badgeTop(IconData icon, {bool active = false, Color color = Colors.grey}) {
+  static Widget _badgeTop(String icon, {bool active = false, Color color = Colors.grey}) {
     return Container(
-      padding: const EdgeInsets.all(10),
+      padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 3),
       decoration: BoxDecoration(
-        color: active ? color : Colors.grey.shade200,
+        color: active ? color : Colors.white,
         borderRadius: BorderRadius.circular(20),
       ),
-      child: Icon(
+      child: SvgPicture.asset(
         icon,
-        size: 20,
+        width: 24,
         color: active ? Colors.white : Colors.brown.shade400,
       ),
     );

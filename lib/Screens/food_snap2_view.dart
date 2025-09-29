@@ -64,7 +64,7 @@ class FoodSnap2Screen extends StatelessWidget {
               left: 16,
               child: CircleAvatar(
                 backgroundColor: Colors.white.withOpacity(0.1),
-                child: const Icon(Icons.close, color: Colors.white),
+                child:  SvgPicture.asset(UI_close, color: Colors.white, width: 32,),
               ),
             ),
 
@@ -156,7 +156,7 @@ class FoodSnap2Screen extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
-                           Icon(Icons.image, color: Colors.white, size: 28),
+                          SvgPicture.asset(UI_upload_img, color: Colors.white, width: 32),
                           InkWell(
                             onTap: (){
                               Get.to(FoodSnap3View());
@@ -164,7 +164,7 @@ class FoodSnap2Screen extends StatelessWidget {
                             child: const Icon(Icons.camera,
                                 color: greenColor, size: 68),
                           ),
-                          const Icon(Icons.flash_on, color: Colors.white, size: 28),
+                          SvgPicture.asset(UI_flash_on, color: Colors.white, width: 32),
                         ],
                       ),
                       const SizedBox(height: 12),

@@ -65,8 +65,8 @@ class FoodSnap3View extends StatelessWidget {
               top: 16,
               left: 16,
               child: CircleAvatar(
-                backgroundColor: Colors.transparent,
-                child: const Icon(Icons.close, color: Colors.white),
+                backgroundColor: Colors.white.withOpacity(0.1),
+                child:  SvgPicture.asset(UI_close, color: Colors.white, width: 32,),
               ),
             ),
             Container(
@@ -108,12 +108,134 @@ class FoodSnap3View extends StatelessWidget {
                 children: [
                   Stack(
                     children: [
+                      // Container(
+                      //   padding: EdgeInsets.all(12),
+                      //   decoration: BoxDecoration(
+                      //     color: Colors.black.withOpacity(0.3),
+                      //     borderRadius: BorderRadius.circular(20),
+                      //
+                      //   ),
+                      //   child: Column(
+                      //     mainAxisSize: MainAxisSize.min,
+                      //     crossAxisAlignment: CrossAxisAlignment.start,
+                      //     mainAxisAlignment: MainAxisAlignment.end,
+                      //     children: [
+                      //       // Dish Image
+                      //
+                      //
+                      //
+                      //       // Meal Identified
+                      //       Row(
+                      //         children: [
+                      //           Text(
+                      //             "Meal Identified:",
+                      //             style: TextStyle(
+                      //               fontSize: 14,
+                      //               color: Colors.transparent,
+                      //               fontFamily: fontInterRegular,
+                      //             ),
+                      //           ),
+                      //           const SizedBox(width: 6),
+                      //           Text(
+                      //             "Seafood Pasta",
+                      //             style: TextStyle(
+                      //               fontSize: 20,
+                      //               color: Colors.transparent,
+                      //               fontFamily: fontInterBold,
+                      //             ),
+                      //           ),
+                      //         ],
+                      //       ),
+                      //
+                      //       const SizedBox(height: 8),
+                      //
+                      //       // Description
+                      //       Container(
+                      //         padding: REdgeInsets.all(12),
+                      //         decoration: BoxDecoration(
+                      //           color: Colors.white,
+                      //           borderRadius: BorderRadius.circular(8),
+                      //           border:
+                      //               Border.all(color: Colors.white, width: 1),
+                      //         ),
+                      //         child: Text(
+                      //           "Spaghetti with mussels, calamari, shrimp, garlic, tomato cream sauce, herbs, and olive oil.",
+                      //           style: TextStyle(
+                      //             fontSize: 13,
+                      //             color: Colors.black,
+                      //             fontFamily: fontInterRegular,
+                      //           ),
+                      //         ),
+                      //       ),
+                      //
+                      //       const SizedBox(height: 16),
+                      //
+                      //       // Nutritional Info
+                      //       Row(
+                      //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      //         children: [
+                      //           _buildNutritionTileDummy(
+                      //               "Calories", "550 kcal"),
+                      //           _buildNutritionTileDummy("Protein", "25 g"),
+                      //           _buildNutritionTileDummy("Carb", "60 g"),
+                      //           _buildNutritionTileDummy("Fat", "18 g"),
+                      //         ],
+                      //       ),
+                      //
+                      //       const SizedBox(height: 16),
+                      //
+                      //       // Portion
+                      //       Row(
+                      //         children: [
+                      //           Text(
+                      //             "Estimated Portion:",
+                      //             style: TextStyle(
+                      //               fontSize: 13,
+                      //               color: Colors.transparent,
+                      //               fontFamily: fontInterMedium,
+                      //             ),
+                      //           ),
+                      //           const SizedBox(width: 4),
+                      //           Text(
+                      //             "Medium serving",
+                      //             style: TextStyle(
+                      //               fontSize: 13,
+                      //               color: Colors.transparent,
+                      //               fontFamily: fontInterSemiBold,
+                      //             ),
+                      //           ),
+                      //         ],
+                      //       ),
+                      //
+                      //       const SizedBox(height: 16),
+                      //
+                      //       // Ingredients
+                      //       Text(
+                      //         "Ingredients:",
+                      //         style: TextStyle(
+                      //           fontSize: 13,
+                      //           color: Colors.transparent,
+                      //           fontFamily: fontInterMedium,
+                      //         ),
+                      //       ),
+                      //       const SizedBox(height: 4),
+                      //       Text(
+                      //         "Pasta, Mussel, Calamari, Shrimp, Olive Oil, Tomato, Herbs, Garlic, Red Wine",
+                      //         style: TextStyle(
+                      //           fontSize: 13,
+                      //           color: Colors.transparent,
+                      //           fontFamily: fontInterRegular,
+                      //         ),
+                      //       ),
+                      //     ],
+                      //   ),
+                      // ),
                       Container(
                         padding: EdgeInsets.all(12),
                         decoration: BoxDecoration(
-                          color: Colors.black.withOpacity(0.7),
+                          color: Colors.black.withOpacity(0.3),
                           borderRadius: BorderRadius.circular(20),
-                          border: Border.all(color: halfTransparent, width: 1),
+
                         ),
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
@@ -122,125 +244,7 @@ class FoodSnap3View extends StatelessWidget {
                           children: [
                             // Dish Image
 
-                            const SizedBox(height: 12),
 
-                            // Meal Identified
-                            Row(
-                              children: [
-                                Text(
-                                  "Meal Identified:",
-                                  style: TextStyle(
-                                    fontSize: 14,
-                                    color: Colors.transparent,
-                                    fontFamily: fontInterRegular,
-                                  ),
-                                ),
-                                const SizedBox(width: 6),
-                                Text(
-                                  "Seafood Pasta",
-                                  style: TextStyle(
-                                    fontSize: 20,
-                                    color: Colors.transparent,
-                                    fontFamily: fontInterBold,
-                                  ),
-                                ),
-                              ],
-                            ),
-
-                            const SizedBox(height: 8),
-
-                            // Description
-                            Container(
-                              padding: REdgeInsets.all(12),
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(8),
-                                border:
-                                    Border.all(color: Colors.white, width: 1),
-                              ),
-                              child: Text(
-                                "Spaghetti with mussels, calamari, shrimp, garlic, tomato cream sauce, herbs, and olive oil.",
-                                style: TextStyle(
-                                  fontSize: 13,
-                                  color: Colors.black,
-                                  fontFamily: fontInterRegular,
-                                ),
-                              ),
-                            ),
-
-                            const SizedBox(height: 16),
-
-                            // Nutritional Info
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                _buildNutritionTileDummy(
-                                    "Calories", "550 kcal"),
-                                _buildNutritionTileDummy("Protein", "25 g"),
-                                _buildNutritionTileDummy("Carb", "60 g"),
-                                _buildNutritionTileDummy("Fat", "18 g"),
-                              ],
-                            ),
-
-                            const SizedBox(height: 16),
-
-                            // Portion
-                            Text(
-                              "Estimated Portion:",
-                              style: TextStyle(
-                                fontSize: 13,
-                                color: Colors.transparent,
-                                fontFamily: fontInterMedium,
-                              ),
-                            ),
-                            const SizedBox(height: 4),
-                            Text(
-                              "Medium serving",
-                              style: TextStyle(
-                                fontSize: 13,
-                                color: Colors.transparent,
-                                fontFamily: fontInterRegular,
-                              ),
-                            ),
-
-                            const SizedBox(height: 16),
-
-                            // Ingredients
-                            Text(
-                              "Ingredients:",
-                              style: TextStyle(
-                                fontSize: 13,
-                                color: Colors.transparent,
-                                fontFamily: fontInterMedium,
-                              ),
-                            ),
-                            const SizedBox(height: 4),
-                            Text(
-                              "Pasta, Mussel, Calamari, Shrimp, Olive Oil, Tomato, Herbs, Garlic, Red Wine",
-                              style: TextStyle(
-                                fontSize: 13,
-                                color: Colors.transparent,
-                                fontFamily: fontInterRegular,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Container(
-                        padding: EdgeInsets.all(12),
-                        decoration: BoxDecoration(
-                          color: Colors.transparent,
-                          borderRadius: BorderRadius.circular(20),
-                          border: Border.all(color: halfTransparent, width: 1),
-                        ),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            // Dish Image
-
-                            const SizedBox(height: 12),
 
                             // Meal Identified
                             Row(
@@ -289,10 +293,14 @@ class FoodSnap3View extends StatelessWidget {
                             const SizedBox(height: 16),
 
                             // Nutritional Info
+                            _buildNutritionTile("Estimated Calories", "550 kcal"),
+
+                            SizedBox(height: 2,),
+
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                _buildNutritionTile("Calories", "550 kcal"),
+
                                 _buildNutritionTile("Protein", "25 g"),
                                 _buildNutritionTile("Carb", "60 g"),
                                 _buildNutritionTile("Fat", "18 g"),
@@ -302,21 +310,25 @@ class FoodSnap3View extends StatelessWidget {
                             const SizedBox(height: 16),
 
                             // Portion
-                            Text(
-                              "Estimated Portion:",
-                              style: TextStyle(
-                                  fontSize: 13,
-                                  color: Colors.white,
-                                  fontFamily: fontInterRegular),
-                            ),
-                            const SizedBox(height: 4),
-                            Text(
-                              "Medium serving",
-                              style: TextStyle(
-                                fontSize: 13,
-                                color: Colors.white,
-                                fontFamily: fontInterRegular,
-                              ),
+                            Row(
+                              children: [
+                                Text(
+                                  "Estimated Portion:",
+                                  style: TextStyle(
+                                      fontSize: 13,
+                                      color: Colors.white,
+                                      fontFamily: fontInterRegular),
+                                ),
+                                const SizedBox(width: 4),
+                                Text(
+                                  "Medium serving",
+                                  style: TextStyle(
+                                    fontSize: 13,
+                                    color: Colors.white,
+                                    fontFamily: fontInterSemiBold,
+                                  ),
+                                ),
+                              ],
                             ),
 
                             const SizedBox(height: 16),
@@ -384,7 +396,7 @@ class FoodSnap3View extends StatelessWidget {
                             // TODO: Navigate or perform action
                           },
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.black.withOpacity(0.7),
+                            backgroundColor: Colors.black.withOpacity(0.3),
                             padding: const EdgeInsets.symmetric(vertical: 0),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(20),
@@ -437,22 +449,31 @@ class FoodSnap3View extends StatelessWidget {
   }
 
   Widget _buildNutritionTile(String title, String value) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Text(
           title,
           style: TextStyle(
-            fontSize: 11,
+            fontSize: 12,
             fontFamily: fontInterRegular,
             color: Colors.white,
           ),
         ),
-        const SizedBox(height: 4),
+        Text(
+          ":",
+          style: TextStyle(
+            fontSize: 12,
+            fontFamily: fontInterRegular,
+            color: Colors.white,
+          ),
+        ),
+
+        const SizedBox(width: 4),
         Text(
           value,
           style: TextStyle(
-            fontSize: 14,
+            fontSize: 16,
             fontFamily: fontInterSemiBold,
             color: Colors.white,
           ),

@@ -60,25 +60,32 @@ class DashboardView extends StatelessWidget {
             children: [
               /// Header
               Container(
-                padding: const EdgeInsets.all(16),
+                padding: const EdgeInsets.all(16.0),
+                color: Colors.white,
                 child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    const Icon(Icons.arrow_back_ios, color: Colors.black54, size: 18),
+                    SvgPicture.asset(UI_back, color: Colors.black54, width: 16,),
                     const SizedBox(width: 8),
                     const Text(
                       "MONDAY, MAY 12",
                       style: TextStyle(
-                        fontSize: 16,
+                        fontSize: 14,
                         fontFamily: fontInterSemiBold,
                         color: Colors.black54,
                       ),
                     ),
+
+                    SizedBox(width: 6,),
+
+                    SvgPicture.asset(UI_calendar, color: Colors.black54,width: 14,),
+
                     const Spacer(),
-                    const Icon(Icons.person_outline, color: Colors.black87),
-                    const SizedBox(width: 12),
-                    const Icon(Icons.star_border, color: Colors.black87),
-                    const SizedBox(width: 12),
-                    const Icon(Icons.filter_list, color: Colors.black87),
+                    SvgPicture.asset(UI_profile, color: Colors.black, width: 20,),
+                    const SizedBox(width: 8),
+                    SvgPicture.asset(UI_ai_insight, color: Colors.black, width: 20,),
+                    const SizedBox(width: 8),
+                    SvgPicture.asset(UI_configure, color: Colors.black, width: 20,),
                   ],
                 ),
               ),
@@ -165,13 +172,13 @@ class DashboardView extends StatelessWidget {
                                 crossAxisCount: 2,
                                 shrinkWrap: true,
                                 physics: const NeverScrollableScrollPhysics(),
-                                crossAxisSpacing: 6,
-                                mainAxisSpacing: 6,
+                                crossAxisSpacing: 8,
+                                mainAxisSpacing: 8,
                                 children: [
-                                  _goalBox(Icons.snowshoeing_sharp, "6,326", "steps", greenColor),
-                                  _goalBox(Icons.water_drop, "3/8", "glasses", Colors.red),
-                                  _goalBox(Icons.sentiment_satisfied, "Feeling", "okay", Colors.blue),
-                                  _goalBox(Icons.restaurant, "3/5", "meals", Colors.black54),
+                                  _goalBox(UI_steps, "6,326", "steps", greenColor),
+                                  _goalBox(UI_hydration, "3/8", "glasses", Colors.red),
+                                  _goalBox(UI_okay, "Feeling", "okay", Colors.blue),
+                                  _goalBox(UI_meal, "3/5", "meals", Colors.black54),
                                 ],
                               ),
                             ),
@@ -201,7 +208,7 @@ class DashboardView extends StatelessWidget {
           
                         Row(
                           children: [
-                            Icon(Icons.insights, color: Colors.white,size: 16,),
+                            SvgPicture.asset(UI_ai_insight, color: Colors.white,width: 16,),
           
                             SizedBox(width: 4,),
           
@@ -288,15 +295,16 @@ class DashboardView extends StatelessWidget {
           child: CircularProgressIndicator(
             value: percent,
             color: greenColor,
-            strokeWidth: 8,
-            backgroundColor: Colors.black54,
+            strokeWidth: 10,
+
+            backgroundColor: Colors.white,
           ),
         ),
         Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             
-            SvgPicture.asset(UI,  color: Colors.black, size: 32,),
+            SvgPicture.asset(UI_calories,  color: Colors.black, width: 32,),
             
             Text(
               "$value",
@@ -429,9 +437,10 @@ class DashboardView extends StatelessWidget {
   }
 
   /// Goal Box widget
-  static Widget _goalBox(IconData icon, String value, String label, Color color) {
+  static Widget _goalBox(String icon, String value, String label, Color color) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 8),
+
+      padding: const EdgeInsets.symmetric(horizontal: 4),
       decoration: BoxDecoration(
         border: Border.all(color: color, width: 1),
         borderRadius: BorderRadius.circular(12),
@@ -439,24 +448,38 @@ class DashboardView extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(icon, color: color, size: 24),
-           SizedBox(height: 6),
-          Text(
-            value,
-            style:  TextStyle(
-              fontSize: 14,
-              fontFamily: fontInterSemiBold,
-              color: color,
-            ),
+          SvgPicture.asset(icon, color: color, width: 30),
+           SizedBox(height: 4),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                value,
+                style:  TextStyle(
+                  fontSize: 12,
+                  fontFamily: fontInterSemiBold,
+                  color: color,
+                ),
+              ),
+              if(value != "Feeling")Text(
+                " $label",
+                style: TextStyle(
+                  fontSize: 9,
+                  fontFamily: fontInterRegular,
+                  color: color,
+                ),
+              ),
+            ],
           ),
-          Text(
+
+          if(value == "Feeling")Text(
             label,
             style: TextStyle(
-              fontSize: 11,
+              fontSize: 9,
               fontFamily: fontInterRegular,
               color: color,
             ),
-          ),
+          )
         ],
       ),
     );

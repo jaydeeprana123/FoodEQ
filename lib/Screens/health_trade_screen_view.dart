@@ -122,23 +122,29 @@ class HealthTrendsScreen extends StatelessWidget {
               padding: const EdgeInsets.all(16.0),
               color: Colors.white,
               child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const Icon(Icons.arrow_back, color: Colors.black),
-                  const SizedBox(width: 10),
+                   SvgPicture.asset(UI_back, color: Colors.black54, width: 16,),
+                  const SizedBox(width: 8),
                   const Text(
                     "MONDAY, MAY 12",
                     style: TextStyle(
                       fontSize: 14,
                       fontFamily: fontInterSemiBold,
-                      color: Colors.black87,
+                      color: Colors.black54,
                     ),
                   ),
+
+                  SizedBox(width: 6,),
+
+                  SvgPicture.asset(UI_calendar, color: Colors.black54,width: 14,),
+                  
                   const Spacer(),
-                  const Icon(Icons.person_outline, color: Colors.black),
-                  const SizedBox(width: 10),
-                  const Icon(Icons.star_border, color: Colors.black),
-                  const SizedBox(width: 10),
-                  const Icon(Icons.filter_list, color: Colors.black),
+                  SvgPicture.asset(UI_profile, color: Colors.black, width: 20,),
+                  const SizedBox(width: 8),
+                  SvgPicture.asset(UI_ai_insight, color: Colors.black, width: 20,),
+                  const SizedBox(width: 8),
+                  SvgPicture.asset(UI_configure, color: Colors.black, width: 20,),
                 ],
               ),
             ),
@@ -178,24 +184,37 @@ class HealthTrendsScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  "TRENDS",
-                  style: TextStyle(
-                    fontSize: 15,
-                    fontFamily: fontInterSemiBold,
-                    color: Colors.black,
+                Padding(
+                  padding: const EdgeInsets.all(0.0),
+                  child: Row(
+                    children: [
+
+                      SvgPicture.asset(UI_trends, color: Colors.black, width: 24,),
+
+                      SizedBox(width: 6,),
+
+                      const Text(
+                        "TRENDS",
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontFamily: fontInterRegular,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
+
                 const SizedBox(height: 12),
 
                 /// Tabs (Health / Nutrition / Exercise)
                 Row(
                   children: [
-                    _tabButton("Health", Icons.monitor_heart, true),
+                    _tabButton("Health", UI_heart_rate, true),
                     const SizedBox(width: 6),
-                    _tabButton("Nutrition", Icons.no_food_rounded, false),
+                    _tabButton("Nutrition", UI_health, false),
                     const SizedBox(width: 6),
-                    _tabButton("Exercise", Icons.directions_walk, false),
+                    _tabButton("Exercise", UI_exercise, false),
                   ],
                 )
 
@@ -210,6 +229,8 @@ class HealthTrendsScreen extends StatelessWidget {
             padding: EdgeInsets.only(left: 12, right: 12, bottom: 12),
             child: Row(
               children: [
+                SvgPicture.asset(UI_weight, color: Colors.black87,width: 18,),
+                SizedBox(width: 4,),
                 Expanded(
                   child: Text(
                     "Your Weight",
@@ -362,13 +383,21 @@ class HealthTrendsScreen extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          const Text(
-            "Signs & Symptoms",
-            style: TextStyle(
-              fontSize: 14,
-              fontFamily: fontInterSemiBold,
-              color: Colors.white,
-            ),
+          Row(
+            children: [
+
+              SvgPicture.asset(UI_log, width: 18, color: Colors.white,),
+               SizedBox(width: 4,),
+
+               Text(
+                "Signs & Symptoms",
+                style: TextStyle(
+                  fontSize: 14,
+                  fontFamily: fontInterSemiBold,
+                  color: Colors.white,
+                ),
+              ),
+            ],
           ),
           const SizedBox(height: 12),
 
@@ -485,7 +514,11 @@ class HealthTrendsScreen extends StatelessWidget {
       child: Padding(
         padding:  EdgeInsets.all(16.0),
         child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+
+            SvgPicture.asset(UI_calendar, width: 18, color: Color(0xFF5C4B2E),),
+            SizedBox(width: 4,),
             const Text(
               "Appointments",
               style: TextStyle(
@@ -528,7 +561,7 @@ class HealthTrendsScreen extends StatelessWidget {
     );
   }
 
-   Widget _tabButton(String title, IconData icon, bool isActive) {
+   Widget _tabButton(String title, String icon, bool isActive) {
      return Container(
        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
        decoration: BoxDecoration(
@@ -541,12 +574,12 @@ class HealthTrendsScreen extends StatelessWidget {
        ),
        child: Row(
          children: [
-           Icon(
+           SvgPicture.asset(
              icon,
-             size: 14,
+             width: 16,
              color: isActive ? Colors.white : Colors.grey.shade500,
            ),
-           const SizedBox(width: 6),
+           const SizedBox(width: 2),
            Text(
              title,
              style: TextStyle(

@@ -69,26 +69,32 @@ class MealAnalysisView extends StatelessWidget {
             children: [
               /// Header
               Container(
-                padding: const EdgeInsets.all(16),
+                padding: const EdgeInsets.all(16.0),
+                color: Colors.white,
                 child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    const Icon(Icons.arrow_back_ios,
-                        color: Colors.black54, size: 18),
+                    SvgPicture.asset(UI_back, color: Colors.black54, width: 16,),
                     const SizedBox(width: 8),
                     const Text(
                       "MONDAY, MAY 12",
                       style: TextStyle(
-                        fontSize: 15,
+                        fontSize: 14,
                         fontFamily: fontInterSemiBold,
                         color: Colors.black54,
                       ),
                     ),
+
+                    SizedBox(width: 6,),
+
+                    SvgPicture.asset(UI_calendar, color: Colors.black54,width: 14,),
+
                     const Spacer(),
-                    const Icon(Icons.person_outline, color: Colors.black87),
-                    const SizedBox(width: 12),
-                    const Icon(Icons.star_border, color: Colors.black87),
-                    const SizedBox(width: 12),
-                    const Icon(Icons.filter_list, color: Colors.black87),
+                    SvgPicture.asset(UI_profile, color: Colors.black, width: 20,),
+                    const SizedBox(width: 8),
+                    SvgPicture.asset(UI_ai_insight, color: Colors.black, width: 20,),
+                    const SizedBox(width: 8),
+                    SvgPicture.asset(UI_configure, color: Colors.black, width: 20,),
                   ],
                 ),
               ),

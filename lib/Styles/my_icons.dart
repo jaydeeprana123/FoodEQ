@@ -88,7 +88,7 @@ const UI_upload_img = "assets/images/UI_upload_img.svg";
 const UI_weight = "assets/images/UI_weight.svg";
 
 const UI_add = "assets/images/UI_add.svg";
-const UI_ai_insight = "assets/images/UI_ai_insight.svg";
+const UI_ai_insight = "assets/images/UI_AI_insight.svg";
 const UI_back = "assets/images/UI_back.svg";
 const UI_calendar = "assets/images/UI_calendar.svg";
 const UI_calories = "assets/images/UI_calories.svg";
@@ -121,3 +121,4 @@ const UI_trends = "assets/images/UI_trends.svg";
 const UI_uneasy = "assets/images/UI_uneasy.svg";
 const UI_unlock = "assets/images/UI_unlock.svg";
 const food_snap = "assets/images/food-snap.jpg";
+const UI_meal = "assets/images/UI_meal.svg";

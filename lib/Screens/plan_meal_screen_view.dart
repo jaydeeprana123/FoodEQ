@@ -55,29 +55,59 @@ class PlanMealScreenView extends StatelessWidget {
           children: [
             /// Header
             Container(
-              color: Colors.white,
               padding: const EdgeInsets.all(16.0),
+              color: Colors.white,
               child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const Icon(Icons.arrow_back, color: Colors.black),
-                  const SizedBox(width: 10),
+                  SvgPicture.asset(UI_back, color: Colors.black54, width: 16,),
+                  const SizedBox(width: 8),
                   const Text(
                     "MONDAY, MAY 12",
                     style: TextStyle(
                       fontSize: 14,
                       fontFamily: fontInterSemiBold,
-                      color: textColor,
+                      color: Colors.black54,
                     ),
                   ),
+
+                  SizedBox(width: 6,),
+
+                  SvgPicture.asset(UI_calendar, color: Colors.black54,width: 14,),
+
                   const Spacer(),
-                  const Icon(Icons.person_outline, color: Colors.black),
-                  const SizedBox(width: 10),
-                  const Icon(Icons.star_border, color: Colors.black),
-                  const SizedBox(width: 10),
-                  const Icon(Icons.filter_list, color: Colors.black),
+                  SvgPicture.asset(UI_profile, color: Colors.black, width: 20,),
+                  const SizedBox(width: 8),
+                  SvgPicture.asset(UI_ai_insight, color: Colors.black, width: 20,),
+                  const SizedBox(width: 8),
+                  SvgPicture.asset(UI_configure, color: Colors.black, width: 20,),
                 ],
               ),
             ),
+
+            SizedBox(height: 4,),
+
+            Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: Row(
+                children: [
+
+                  SvgPicture.asset(UI_log_meal, color: Colors.black, width: 24,),
+
+                  SizedBox(width: 6,),
+
+                  const Text(
+                    "PLAN A MEAL",
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontFamily: fontInterRegular,
+                      color: Colors.black,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 12),
 
             /// Tabs
             SingleChildScrollView(
@@ -88,10 +118,10 @@ class PlanMealScreenView extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    _tabItem("Order Food", Icons.restaurant, true),
-                    _tabItem("Scan Label", Icons.qr_code_scanner, false),
-                    _tabItem("Pantry", Icons.kitchen, false),
-                    _tabItem("Log Meals", Icons.fastfood, false),
+                    _tabItem("Order Food", UI_meal, true),
+                    _tabItem("Scan Label", UI_snap, false),
+                    _tabItem("Pantry", UI_home, false),
+                    _tabItem("Log Meals", UI_log, false),
                   ],
                 ),
               ),
@@ -146,12 +176,12 @@ class PlanMealScreenView extends StatelessWidget {
                         borderRadius: BorderRadius.circular(4),
                       ),
                     ),
-                    icon: const Icon(Icons.assistant_navigation, color: Colors.white),
+                    icon:  SvgPicture.asset(UI_locate, color: Colors.white, width: 20,),
                     label: const Text(
                       "Near me",
                       style: TextStyle(
                         fontFamily: fontInterSemiBold,
-                        fontSize: 14,
+                        fontSize: 12,
                         color: Colors.white,
                       ),
                     ),
@@ -200,7 +230,7 @@ class PlanMealScreenView extends StatelessWidget {
     );
   }
 
-  Widget _tabItem(String title, IconData icon, bool isActive) {
+  Widget _tabItem(String title, String icon, bool isActive) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
       margin: EdgeInsets.only(right: 8),
@@ -214,9 +244,9 @@ class PlanMealScreenView extends StatelessWidget {
       ),
       child: Row(
         children: [
-          Icon(
+          SvgPicture.asset(
             icon,
-            size: 16,
+            width: 16,
             color: isActive ? Colors.white : Colors.black,
           ),
           const SizedBox(width: 6),

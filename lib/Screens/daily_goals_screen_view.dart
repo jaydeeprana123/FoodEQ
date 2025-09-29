@@ -67,26 +67,32 @@ class DailyGoalsScreen extends StatelessWidget {
           children: [
             // Header
             Container(
-              color: lightYellowBg,
               padding: const EdgeInsets.all(16.0),
+              color: Colors.white,
               child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const Icon(Icons.arrow_back_ios, color: Colors.black45, size: 18),
-                  const SizedBox(width: 10),
+                  SvgPicture.asset(UI_back, color: Colors.black54, width: 16,),
+                  const SizedBox(width: 8),
                   const Text(
                     "MONDAY, MAY 12",
                     style: TextStyle(
-                      fontSize: 16,
-                      fontFamily: fontInterMedium,
+                      fontSize: 14,
+                      fontFamily: fontInterSemiBold,
                       color: Colors.black54,
                     ),
                   ),
+
+                  SizedBox(width: 6,),
+
+                  SvgPicture.asset(UI_calendar, color: Colors.black54,width: 14,),
+
                   const Spacer(),
-                  const Icon(Icons.person_outline, color: Colors.black),
-                  const SizedBox(width: 10),
-                  const Icon(Icons.star_border, color: Colors.black),
-                  const SizedBox(width: 10),
-                  const Icon(Icons.filter_list, color: Colors.black),
+                  SvgPicture.asset(UI_profile, color: Colors.black, width: 20,),
+                  const SizedBox(width: 8),
+                  SvgPicture.asset(UI_ai_insight, color: Colors.black, width: 20,),
+                  const SizedBox(width: 8),
+                  SvgPicture.asset(UI_configure, color: Colors.black, width: 20,),
                 ],
               ),
             ),
@@ -171,9 +177,9 @@ class DailyGoalsScreen extends StatelessWidget {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: const [
-                                _GoalItem(UI_sleep, "Calories", "2,000 kcal", Colors.red),
-                                _GoalItem(UI_sleep, "Hydration", "8 cups", Colors.blue),
-                                _GoalItem(UI_sleep, "Exercise", "6,000 steps", greenColor),
+                                _GoalItem(UI_calories, "Calories", "2,000 kcal", Colors.red),
+                                _GoalItem(UI_hydration, "Hydration", "8 cups", Colors.blue),
+                                _GoalItem(UI_steps, "Exercise", "6,000 steps", greenColor),
                                 _GoalItem(UI_sleep, "Sleep", "7 hours", Colors.purple),
                               ],
                             ),
@@ -221,15 +227,24 @@ class DailyGoalsScreen extends StatelessWidget {
                                       ),
                                       Column(
                                         mainAxisAlignment: MainAxisAlignment.center,
-                                        children: const [
-                                          Text(
-                                            "1,610",
-                                            textAlign: TextAlign.center,
-                                            style: TextStyle(
-                                              fontSize: 15,
-                                              fontFamily: fontInterMedium,
-                                              color: Colors.black87,
-                                            ),
+                                        children:  [
+                                          Row(
+                                            mainAxisAlignment: MainAxisAlignment.center,
+                                            children: [
+
+                                              SvgPicture.asset(UI_calories, width: 14,color: Colors.black,),
+
+                                              SizedBox(width: 3,),
+                                              Text(
+                                                "1,610",
+                                                textAlign: TextAlign.center,
+                                                style: TextStyle(
+                                                  fontSize: 15,
+                                                  fontFamily: fontInterMedium,
+                                                  color: Colors.black87,
+                                                ),
+                                              ),
+                                            ],
                                           ),
                                           Text(
                                             "of 2,000 kcal",
