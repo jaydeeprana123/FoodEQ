@@ -121,3 +121,4 @@ const UI_track = "assets/images/UI_track.svg";
 const UI_trends = "assets/images/UI_trends.svg";
 const UI_uneasy = "assets/images/UI_uneasy.svg";
 const UI_unlock = "assets/images/UI_unlock.svg";
+const food_snap = "assets/images/food-snap.jpg";

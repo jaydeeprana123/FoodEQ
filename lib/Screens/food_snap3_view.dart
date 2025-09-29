@@ -47,7 +47,7 @@ class FoodSnap3View extends StatelessWidget {
         child: Stack(
           children: [
             Image.asset(
-              chinese,
+              food_snap,
               width: double.infinity,
               height: double.infinity,
               fit: BoxFit.cover,

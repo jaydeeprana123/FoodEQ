@@ -103,7 +103,7 @@ class MealAnalysisView extends StatelessWidget {
               ClipRRect(
                 borderRadius: BorderRadius.circular(0),
                 child: Image.asset(
-                  singapore, // replace with your image
+                  food_snap, // replace with your image
                   height: 200,
                   width: double.infinity,
                   fit: BoxFit.cover,

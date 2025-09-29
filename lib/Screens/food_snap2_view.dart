@@ -47,7 +47,7 @@ class FoodSnap2Screen extends StatelessWidget {
         child: Stack(
           children: [
 
-            Image.asset(chinese, width: double.infinity, height: double.infinity,fit: BoxFit.cover,),
+            Image.asset(food_snap, width: double.infinity, height: double.infinity,fit: BoxFit.cover,),
 
             /// Top bar
             Positioned(
