@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_eq/Screens/create_Account_screen_view.dart';
@@ -8,6 +9,7 @@ import 'package:food_eq/Screens/splash_screen_view.dart';
 import 'package:food_eq/Styles/constant.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:food_eq/Styles/my_icons.dart';
 
 import '../Styles/app_text_style.dart';
@@ -15,8 +17,10 @@ import '../Styles/my_colors.dart';
 import '../Styles/my_font.dart';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import 'fitness_dashboard_view.dart';
 

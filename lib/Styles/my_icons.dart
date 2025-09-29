@@ -52,11 +52,10 @@ const icon_small_rating_bar = "assets/images/icon_small_rating_bar.svg";
 const iconVerified = "assets/images/iconVerified.svg";
 const iconCalender = "assets/images/iconCalender.svg";
 
-const noodles = "assets/images/noodles.jpeg";
-const momos = "assets/images/momo.jpeg";
-const bread = "assets/images/bread.jpeg";
+const noodles = "assets/images/noodles.jpg";
+const momos = "assets/images/momo.jpg";
+const bread = "assets/images/bread.jpg";
 const chinese = "assets/images/chinese.jpg";
-const singapore = "assets/images/singapore.jpeg";
 const UI_badge = "assets/images/UI_badge.svg";
 const UI_BMI = "assets/images/UI_BMI.svg";
 const UI_burn = "assets/images/UI_burn.svg";

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/services.dart';
 import 'package:food_eq/Screens/login_screen_view.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
