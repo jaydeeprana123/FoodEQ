@@ -37,13 +37,18 @@ class UserInfoScreen extends StatelessWidget {
   ];
 
   final List<String> heightOptions = List.generate(
-    37,
-        (index) => "${4 + (index + 48) ~/ 12}'${(index + 48) % 12}\"",
-  ); // e.g., 4'0" to 7'0"
+    37, // from 4'0" to 7'0" inclusive
+    (index) {
+      final totalInches = 48 + index; // 4'0" = 48 inches (4 * 12)
+      final feet = totalInches ~/ 12;
+      final inches = totalInches % 12;
+      return "${feet}'${inches}\"";
+    },
+  );
 
   final List<String> weightOptions = List.generate(
     ((400 - 80) ~/ 10 + 1),
-        (index) => "${80 + (index * 10)} lbs",
+    (index) => "${80 + (index * 10)} lbs",
   );
 
   final List<String> activityLevels = [
@@ -54,11 +59,8 @@ class UserInfoScreen extends StatelessWidget {
     'Extra active (very intense exercise or physical job)',
   ];
 
-
-
   @override
   Widget build(BuildContext context) {
-
     SystemChrome.setSystemUIOverlayStyle(
       const SystemUiOverlayStyle(
         statusBarColor: Colors.transparent, // or yellowCard if needed
@@ -81,7 +83,6 @@ class UserInfoScreen extends StatelessWidget {
           Container(
             color: lightYellowBg, // Replace with your actual background
           ),
-         
           SafeArea(
             child: Padding(
               padding: const EdgeInsets.all(24.0),
@@ -90,76 +91,74 @@ class UserInfoScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Spacer(),
-
-                    Center(child: const Text("Tell us more about you", style: TextStyle(fontSize: 20,  color: textColor,  fontFamily: fontInterMedium))),
+                    Center(
+                        child: const Text("Tell us more about you",
+                            style: TextStyle(
+                                fontSize: 20,
+                                color: textColor,
+                                fontFamily: fontInterMedium))),
                     const SizedBox(height: 24),
-
                     buildLabel("Age"),
                     buildDropdown(
                       selectedAge,
                       ageOptions,
-                          (value) => setState(() => selectedAge = value!),
+                      (value) => setState(() => selectedAge = value!),
                     ),
                     const SizedBox(height: 12),
-
                     buildLabel("Gender"),
                     buildDropdown(
                       selectedGender,
                       genderOptions,
-                          (value) => setState(() => selectedGender = value!),
+                      (value) => setState(() => selectedGender = value!),
                     ),
                     const SizedBox(height: 12),
-
                     buildLabel("Height"),
                     buildDropdown(
                       selectedHeight,
                       heightOptions,
-                          (value) => setState(() => selectedHeight = value!),
+                      (value) => setState(() => selectedHeight = value!),
                     ),
                     const SizedBox(height: 12),
-
                     buildLabel("Weight"),
                     buildDropdown(
                       selectedWeight,
                       weightOptions,
-                          (value) => setState(() => selectedWeight = value!),
+                      (value) => setState(() => selectedWeight = value!),
                     ),
                     const SizedBox(height: 12),
-
                     buildLabel("Activity level"),
                     buildDropdown(
                       selectedActivity,
                       activityLevels,
-                          (value) => setState(() => selectedActivity = value!),
+                      (value) => setState(() => selectedActivity = value!),
                     ),
-
                     const Spacer(),
-
                     SizedBox(
                       width: double.infinity,
                       child: ElevatedButton(
                         onPressed: () {
                           Get.to(PreferenceScreen());
-
                         },
                         style: ElevatedButton.styleFrom(
-                          backgroundColor:greenColor,
+                          backgroundColor: greenColor,
                           padding: const EdgeInsets.symmetric(vertical: 16),
                           shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.all(Radius.circular(4)), // 👈 No curves
+                            borderRadius: BorderRadius.all(
+                                Radius.circular(4)), // 👈 No curves
                           ),
                         ),
-
                         child: const Text(
                           'NEXT',
-                            style: TextStyle(color: Colors.white, fontSize: 16, fontFamily: fontInterBold),
-
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 16,
+                              fontFamily: fontInterBold),
                         ),
                       ),
                     ),
-
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 4.0, vertical: 12.0),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 4.0, vertical: 12.0),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -191,7 +190,8 @@ class UserInfoScreen extends StatelessWidget {
                               height: 4,
                               decoration: BoxDecoration(
                                 color: Colors.transparent,
-                                border: Border.all(color: Colors.black, width: 1),
+                                border:
+                                    Border.all(color: Colors.black, width: 1),
                                 borderRadius: BorderRadius.circular(2),
                               ),
                             ),
@@ -214,17 +214,17 @@ class UserInfoScreen extends StatelessWidget {
       padding: const EdgeInsets.only(left: 4.0, bottom: 4),
       child: Text(
         label,
-        style:TextStyle(color: Colors.black, fontSize: 14, fontFamily: fontInterRegular),
-
+        style: TextStyle(
+            color: Colors.black, fontSize: 14, fontFamily: fontInterRegular),
       ),
     );
   }
 
   Widget buildDropdown(
-      String selectedValue,
-      List<String> options,
-      ValueChanged<String?> onChanged,
-      ) {
+    String selectedValue,
+    List<String> options,
+    ValueChanged<String?> onChanged,
+  ) {
     return Container(
       height: 50,
       child: DropdownButtonFormField<String>(
@@ -252,21 +252,18 @@ class UserInfoScreen extends StatelessWidget {
 
         items: options
             .map((e) => DropdownMenuItem<String>(
-          value: e,
-          child: Text(
-            e,
-            style: const TextStyle(
-                color: Colors.black,
-                fontSize: 14,
-                fontFamily: fontInterRegular),
-          ),
-        ))
+                  value: e,
+                  child: Text(
+                    e,
+                    style: const TextStyle(
+                        color: Colors.black,
+                        fontSize: 14,
+                        fontFamily: fontInterRegular),
+                  ),
+                ))
             .toList(),
         onChanged: onChanged,
       ),
     );
   }
-
 }
-
-
